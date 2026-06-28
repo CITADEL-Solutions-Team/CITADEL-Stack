@@ -84,6 +84,17 @@
             </template>
         </StatCard>
     </StatsBlock>
+
+    <WhereToStart
+    :Button="ButtonThree"
+    >
+        <template v-slot:Header>
+            Not sure where to start? That's exactly what the first call is for.
+        </template>
+        <template v-slot:Body>
+            We offer a free, no-pressure consultation for every new client. In 30 minutes we'll identify your biggest gaps and walk you through what it would take to close them. No commitment required.
+        </template>
+    </WhereToStart>
 </template>
 
 <script setup lang="ts">
@@ -92,6 +103,7 @@
     import ListWithHeader from '@/components/Sections/ListWithHeader.vue';
     import StatsBlock from '@/components/Sections/StatsBlock.vue';
     import StatCard from '@/components/Cards/StatCard.vue';
+    import WhereToStart from '@/components/Sections/WhereToStart.vue';
 
     const ButtonOne: { label: string, to: string } = {
         label: "About Us",
@@ -101,5 +113,10 @@
     const ButtonTwo: { label: string, to: string } = {
         label: "Our Mission",
         to: "/our-mission"
+    }
+
+    const ButtonThree: { label: string, to: string } = {
+        label: "Contact Us",
+        to: "/contact-us"
     }
 </script>
