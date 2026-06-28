@@ -6,7 +6,9 @@
         <div class="px-16 py-6 flex items-center w-full h-full">
             <div class="flex-1">
                 <h1 class="
-                font-['Exo_2'] text-[96px]
+                font-['Exo_2']
+                {{ /* Scale the banner text size with width so the logo stays visible */ }}
+                text-[64px] md:text-[80px] lg:text-[96px]
                 ">
                     <slot name="BusinessName">
                         CITADEL SOLUTIONS
