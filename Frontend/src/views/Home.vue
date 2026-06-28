@@ -1,4 +1,5 @@
 <template>
+    <!-- Hero section. Takes in 2 Button inputs to allow for that extra layer of navigation -->
     <Hero
     :ButtonOne="ButtonOne"
     :ButtonTwo="ButtonTwo"
@@ -10,7 +11,8 @@
             Straightforward cybersecurity for small and mid-sized businesses. No jargon, no bloated contracts, just real protection from a team that genuinely cares about your business.
         </template>
     </Hero>
-
+    
+    <!-- Can literally take in anything and just turns it into a list with a header to the left -->
     <ListWithHeader>
         <template v-slot:Header>
             Why CITADEL?
@@ -34,12 +36,62 @@
             </InfoCard>
         </template>
     </ListWithHeader>
+
+    <!-- Only works well with even number of objects. Will adapt to really any screen size and look good -->
+    <StatsBlock>
+        <StatCard>
+            <template v-slot:Stat>
+                43%
+            </template>
+            <template v-slot:Blurb>
+                of cyber attacks target small businesses
+            </template>
+            <template v-slot:Source>
+                Verizon / Cybersecurity Magazine
+            </template>
+        </StatCard>
+        <StatCard>
+            <template v-slot:Stat>
+                $1.5M+
+            </template>
+            <template v-slot:Blurb>
+                average cost of a ransomware attack
+            </template>
+            <template v-slot:Source>
+                Sophos 2023 State of Ransomware Report
+            </template>
+        </StatCard>
+        <StatCard>
+            <template v-slot:Stat>
+                99.9%
+            </template>
+            <template v-slot:Blurb>
+                of automated attacks blocked by MFA
+            </template>
+            <template v-slot:Source>
+                Microsoft Security Report. 2023
+            </template>
+        </StatCard>
+        <StatCard>
+            <template v-slot:Stat>
+                61%
+            </template>
+            <template v-slot:Blurb>
+                of small businesses experienced a breach in the past year
+            </template>
+            <template v-slot:Source>
+                PreVeil 2025
+            </template>
+        </StatCard>
+    </StatsBlock>
 </template>
 
 <script setup lang="ts">
     import InfoCard from '@/components/Cards/InfoCard.vue';
-import Hero from '@/components/Sections/Hero.vue';
-import ListWithHeader from '@/components/Sections/ListWithHeader.vue';
+    import Hero from '@/components/Sections/Hero.vue';
+    import ListWithHeader from '@/components/Sections/ListWithHeader.vue';
+    import StatsBlock from '@/components/Sections/StatsBlock.vue';
+    import StatCard from '@/components/Cards/StatCard.vue';
 
     const ButtonOne: { label: string, to: string } = {
         label: "About Us",

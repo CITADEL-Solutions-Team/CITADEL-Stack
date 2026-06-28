@@ -2,7 +2,7 @@
     <div id="Card"
     class="flex flex-col
     bg-(--MenuCard) border border-(--Accent) rounded-2xl
-    w-fit p-8 gap-4
+    w-full p-8 gap-4
     text-center"
     >
         <div id="Stat"
