@@ -11,14 +11,9 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
-<<<<<<< HEAD
+    "@tailwindcss/vite": "^4.3.1",
     "vue": "^3.5.34",
     "vue-router": "^5.1.0"
-=======
-    "pinia": "^3.0.4",
-    "vue": "^3.5.32",
-    "vue-router": "^5.0.4"
->>>>>>> origin/dev
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",
