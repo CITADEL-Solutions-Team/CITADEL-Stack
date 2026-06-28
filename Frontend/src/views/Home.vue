@@ -1,8 +1,14 @@
 <template>
     <Hero
     :ButtonOne="ButtonOne"
-    :ButtonTwo="ButtonTwo">
-    
+    :ButtonTwo="ButtonTwo"
+    >
+        <template v-slot:Hook>
+            Secure Today. Protect Tomorrow.
+        </template>
+        <template v-slot:Body>
+            Straightforward cybersecurity for small and mid-sized businesses. No jargon, no bloated contracts, just real protection from a team that genuinely cares about your business.
+        </template>
     </Hero>
 </template>
 
