@@ -10,10 +10,15 @@
             Straightforward cybersecurity for small and mid-sized businesses. No jargon, no bloated contracts, just real protection from a team that genuinely cares about your business.
         </template>
     </Hero>
+
+    <ListWithHeader>
+        
+    </ListWithHeader>
 </template>
 
 <script setup lang="ts">
     import Hero from '@/components/Sections/Hero.vue';
+import ListWithHeader from '@/components/Sections/ListWithHeader.vue';
 
     const ButtonOne: { label: string, to: string } = {
         label: "About Us",
