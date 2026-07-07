@@ -1,0 +1,116 @@
+package api
+
+import (
+	"log"
+	"net/http"
+	"os"
+	"strconv"
+	"strings"
+	"text/template"
+	"time"
+
+	"gopkg.in/gomail.v2"
+
+	"github.com/gin-gonic/gin"
+)
+
+// ClientInfo represents the client data structure
+type ClientInfo struct {
+	Name    string `json:"name"`
+	Email   string `json:"email"`
+	Phone   string `json:"phone"`
+	Message string `json:"message"`
+}
+
+// EmailTemplate holds email template data
+type EmailTemplate struct {
+	ClientName    string
+	ClientEmail   string
+	ClientMessage string
+	ClientPhone   string
+	Timestamp     time.Time
+}
+
+func SendEmail(client ClientInfo) error {
+	stmpHost := os.Getenv("SMTP_HOST")
+	stmpPort := os.Getenv("SMTP_PORT")
+	username := os.Getenv("EMAIL_USERNAME")
+	password := os.Getenv("EMAIL_PASSWORD")
+	to := os.Getenv("COMPANY_EMAIL")
+
+	// Convert string port to integer
+	port, err := strconv.Atoi(stmpPort)
+
+	// Create the email using this template
+	tmpl := template.Must(template.New("email").Parse(`
+	Client Information:
+	===================
+	Name: {{.ClientName}}
+	Email: {{.ClientEmail}}
+	Phone: {{.ClientPhone}}
+	Message: {{.ClientMessage}}
+	Timestamp: {{.Timestamp}}
+	This message was sent automatically via API.
+	`))
+
+	var emailBody = new(strings.Builder)
+	err = tmpl.Execute(emailBody, EmailTemplate{
+		ClientName:    client.Name,
+		ClientEmail:   client.Email,
+		ClientPhone:   client.Phone,
+		ClientMessage: client.Message,
+		Timestamp:     time.Now(),
+	})
+	if err != nil {
+		return err
+	}
+
+	// Configure email
+	m := gomail.NewMessage()
+	m.SetHeader("From", username)
+	m.SetHeader("To", to)
+	m.SetHeader("Subject", "New Client Inquiry -"+client.Name)
+	m.SetBody("text/plain", emailBody.String())
+
+	// Send Email
+	d := gomail.NewDialer(stmpHost, port, username, password)
+
+	return d.DialAndSend(m)
+}
+
+// ClientInquiryHandler handles incoming client inquiries
+func ClientInquiryHandler(c *gin.Context) {
+	var clientInfo ClientInfo
+
+	// Bind JSON request to struct
+	if err := c.ShouldBindJSON(&clientInfo); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":   "Invalid request data",
+			"message": err.Error(),
+		})
+		return
+	}
+
+	// Validate required fields
+	if clientInfo.Name == "" || clientInfo.Email == "" {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "Name and Email are required",
+		})
+		return
+	}
+
+	// Send email
+	if err := SendEmail(clientInfo); err != nil {
+		log.Printf("Failed to send email: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to send email",
+		})
+		return
+	}
+
+	// Return success response
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Inquiry received and email send successfully",
+		"client":  clientInfo,
+	})
+}

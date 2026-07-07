@@ -8,11 +8,14 @@ import "github.com/gin-gonic/gin"
    the chain
 */
 func addRoutes(router *gin.Engine) error {
-	router.GET("/test", func(c *gin.Context){
+	router.GET("/test", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"Status":"Success",
+			"Status": "Success",
 		})
 	})
+
+	// Add rout for client inquiries
+	router.POST("/api/send-email", ClientInquiryHandler)
 
 	return nil
 }
