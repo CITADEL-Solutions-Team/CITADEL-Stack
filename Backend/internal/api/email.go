@@ -19,6 +19,7 @@ type ClientInfo struct {
 	Name    string `json:"name"`
 	Email   string `json:"email"`
 	Phone   string `json:"phone"`
+	Service string `json:"service"`
 	Message string `json:"message"`
 }
 
@@ -28,10 +29,22 @@ type EmailTemplate struct {
 	ClientEmail   string
 	ClientMessage string
 	ClientPhone   string
+	ClientService string
 	Timestamp     time.Time
 }
 
+var isTesting = false // Flag to enable testing mode
+
+func SetTestingMode(enabled bool) {
+	isTesting = enabled
+}
+
 func SendEmail(client ClientInfo) error {
+	if isTesting {
+		log.Printf("TEST MODE: Would send email to %s", client.Email)
+		return nil
+	}
+
 	stmpHost := os.Getenv("SMTP_HOST")
 	stmpPort := os.Getenv("SMTP_PORT")
 	username := os.Getenv("EMAIL_USERNAME")
@@ -48,6 +61,7 @@ func SendEmail(client ClientInfo) error {
 	Name: {{.ClientName}}
 	Email: {{.ClientEmail}}
 	Phone: {{.ClientPhone}}
+	Service: {{.ClientService}}
 	Message: {{.ClientMessage}}
 	Timestamp: {{.Timestamp}}
 	This message was sent automatically via API.
@@ -58,6 +72,7 @@ func SendEmail(client ClientInfo) error {
 		ClientName:    client.Name,
 		ClientEmail:   client.Email,
 		ClientPhone:   client.Phone,
+		ClientService: client.Service,
 		ClientMessage: client.Message,
 		Timestamp:     time.Now(),
 	})
