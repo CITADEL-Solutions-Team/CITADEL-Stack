@@ -14,10 +14,9 @@
   --Text: #FFFFFF;
   --SupText: #ffffff8c;
 
-  /* --- Typography --- */
-  --font-sans:   'Space Grotesk', 'Inter', system-ui, sans-serif; /* UI / body */
-  --font-mono:   'JetBrains Mono', 'Fira Code', monospace;        /* Code, tech labels */
-  
+  --font-sans: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--Text);
@@ -27,7 +26,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  html, body {
+    overflow-x: hidden;
   }
 }
