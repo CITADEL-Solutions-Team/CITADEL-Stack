@@ -69,7 +69,7 @@ import WhereToStart from '@/components/Sections/WhereToStart.vue';
     const services = [
         {
             Name: "SMB Cyber Security",
-            To: "/services/cybersec"
+            To: "/services/cyber-sec"
         },
         {
             Name: "Home Security",
