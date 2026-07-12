@@ -70,46 +70,43 @@
             </template>
         </ServiceCategory>
 
-
-
-
         <ServiceCategory>
-            <template v-slot:Name>  </template>
+            <template v-slot:Name> Endpoint & Device </template>
             <template v-slot:Items>
 
             </template>
         </ServiceCategory>
 
-        <ServiceCard>
-            <template v-slot:Name>  </template>
-            <template v-slot:Price>  </template>
-            <template v-slot:List>
-                <div class="grid grid-cols-1 gap-1">
-                    <li>  </li>
-                    <li>  </li>
-                    <li>  </li>
-                    <li>  </li>
-                    <li>  </li>
-                </div>
+        <ServiceCategory>
+            <template v-slot:Name> Training & Awareness </template>
+            <template v-slot:Items>
+
+                <ServiceCard>
+                    <template v-slot:Name> Security Awareness Training </template>
+                    <template v-slot:Price> $10/user </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> Bi-monthly live presentations covering current threats         </li>
+                            <li> Phishing simulations with real-time click tracking and reports </li>
+                            <li> On-demand video library for staff self-paced learning          </li>
+                            <li> Monthly engagement summary sent to management                  </li>
+                            <li> Content updated quarterly to reflect new attack trends         </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why>
+                        Your employees are the biggest attack surface you have, and most breaches start with a single click.
+                    </template>
+                </ServiceCard>
+
             </template>
-            <template v-slot:Why>  </template>
-        </ServiceCard>
-        <ServiceCard>
-            <template v-slot:Name> Security Awareness Training </template>
-            <template v-slot:Price> $10/user </template>
-            <template v-slot:List>
-                <div class="grid grid-cols-1 gap-1">
-                    <li> Bi-monthly live presentations covering current threats         </li>
-                    <li> Phishing simulations with real-time click tracking and reports </li>
-                    <li> On-demand video library for staff self-paced learning          </li>
-                    <li> Monthly engagement summary sent to management                  </li>
-                    <li> Content updated quarterly to reflect new attack trends         </li>
-                </div>
+        </ServiceCategory>
+
+        <ServiceCategory>
+            <template v-slot:Name> Monitoring & Quick Wins </template>
+            <template v-slot:Items>
+
             </template>
-            <template v-slot:Why>
-                Your employees are the biggest attack surface you have, and most breaches start with a single click.
-            </template>
-        </ServiceCard>
+        </ServiceCategory>
     </div>
 </template>
 
