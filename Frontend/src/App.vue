@@ -25,7 +25,7 @@
         },
         {
             label: "Our Services",
-            to: "/services-overview"
+            to: "/services"
         },
         {
             label: "Request Services",
