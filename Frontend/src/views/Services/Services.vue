@@ -38,12 +38,20 @@
             <RouterLink
             :to=services[2].To
             class="col-span-2">
-                <InfoCard></InfoCard>
+                <InfoCard>
+                    <template v-slot:Header>
+                        PC-Repair
+                    </template>
+                </InfoCard>
             </RouterLink>
             <RouterLink
             :to=services[3].To
             class="col-span-2">
-                <InfoCard></InfoCard>
+                <InfoCard>
+                    <template v-slot:Header>
+                        Website Management
+                    </template>
+                </InfoCard>
             </RouterLink>
         </div>
     </div>
