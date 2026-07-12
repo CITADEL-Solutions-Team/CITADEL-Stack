@@ -73,6 +73,80 @@
         <ServiceCategory>
             <template v-slot:Name> Endpoint & Device </template>
             <template v-slot:Items>
+                
+                <ServiceCard>
+                    <template v-slot:Name> Endpoint Hardening </template>
+                    <template v-slot:Price> $75-110/device — $25/re-assess </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> Enable full-disk encryption on all workstations and laptops  </li>
+                            <li> Remove unnecessary bloatware and disable risky services  </li>
+                            <li> Configure and verify antivirus / EDR software  </li>
+                            <li> Enable host-based firewall and automate OS updates  </li>
+                            <li> Restrict local admin access to prevent unauthorized installs  </li>
+                            <li> Documented baseline config provided for each device </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> Most successful attacks don't require sophistication, they just need basic protections that were never properly configured. </template>
+                </ServiceCard>
+
+                <ServiceCard>
+                    <template v-slot:Name> MFA & Password Manager Deployment </template>
+                    <template v-slot:Price> $350 +$11/user/mo </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> MFA setup across Microsoft 365 and/or Google Workspace </li>
+                            <li> Password manager deployed and configured for your team  </li>
+                            <li> Admin and user account separation enforced  </li>
+                            <li> Recovery policy documented in case of lockout  </li>
+                            <li> User walkthrough and quick-reference guide included </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> Stolen or reused passwords are behind the majority of breaches, and this is the fastest way to stop them </template>
+                </ServiceCard>
+
+                <ServiceCard>
+                    <template v-slot:Name> Asset Inventory & Lifecycle Tracking </template>
+                    <template v-slot:Price> $400 +$99/mo </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> Full inventory of hardware and software across your organization </li>
+                            <li> Track warranty status, OS versions, and end-of-life dates  </li>
+                            <li> Ongoing monthly maintenance to keep records current </li>
+                            <li> Flags devices approaching end of support for proactive planning </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> Untracked devices running outdated software are invisible risks sitting inside your own network.  </template>
+                </ServiceCard>
+
+                <ServiceCard>
+                    <template v-slot:Name> Secure Device Disposal </template>
+                    <template v-slot:Price> $50-$90/device </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> Certified wipe of all storage media before disposal  </li>
+                            <li> Physical destruction available for drives that can't be wiped  </li>
+                            <li> Certificate of destruction provided for compliance records  </li>
+                            <li> Covers laptops, desktops, phones, tablets, and USB drives </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> A laptop that wasn't properly wiped before disposal can hand a stranger full access to your business data </template>
+                </ServiceCard>
+
+                <ServiceCard>
+                    <template v-slot:Name> Employee Offboarding Security </template>
+                    <template v-slot:Price> $200-$350 or $90/mo </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> Immediate access revocation across all systems and accounts </li>
+                            <li> Device recovery coordination and remote wipe if needed </li>
+                            <li> Audit trail documentation for HR and compliance purposes </li>
+                            <li> Checklist-driven process to ensure nothing is missed </li>
+                            <li> Available as a per-event fee or low-cost monthly retainer </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> Every day a former employee keeps access to your systems is a day your business is unnecessarily exposed.  </template>
+                </ServiceCard>
 
             </template>
         </ServiceCategory>
@@ -98,12 +172,83 @@
                     </template>
                 </ServiceCard>
 
+                <ServiceCard>
+                    <template v-slot:Name> New Employee Security Orientation </template>
+                    <template v-slot:Price> $300-$400/session </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> One-time onboarding session for new hires </li>
+                            <li> Covers password hygiene, phishing awareness, and device policies </li>
+                            <li> Reuses existing training content — no prep overhead </li>
+                            <li> Certificate of completion provided for HR records </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> New hires don't know your security expectations yet, and attackers will find them before you get the chance to train them. </template>
+                </ServiceCard>
+
+                <ServiceCard>
+                    <template v-slot:Name> Table Top Facilitation </template>
+                    <template v-slot:Price> $800-$1200/session </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> Script-guided breach scenario run with your team (~3 hrs) </li>
+                            <li> Simulates real incidents: ransomware, data leak, insider threat </li>
+                            <li> Identifies gaps in communication and decision-making </li>
+                            <li> Written debrief with key findings and recommended fixes </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> The worst time to figure out your incident response plan is while an actual breach is happening.</template>
+                </ServiceCard>
+
             </template>
         </ServiceCategory>
 
         <ServiceCategory>
             <template v-slot:Name> Monitoring & Quick Wins </template>
             <template v-slot:Items>
+
+                <ServiceCard>
+                    <template v-slot:Name> Dark Web Monitoring </template>
+                    <template v-slot:Price> $6/user </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> Continuous scanning of breach databases for your domain and emails </li>
+                            <li> Immediate alert if credentials are found exposed </li>
+                            <li> Monthly credential exposure report with remediation steps  </li>
+                            <li> Covers employee, executive, and shared account email addresses </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> Your employees' credentials may already be circulating on breach forums right now without anyone knowing. </template>
+                </ServiceCard>
+
+                <ServiceCard>
+                    <template v-slot:Name> Security Health Scorecard </template>
+                    <template v-slot:Price> $500 +$99/mo </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> Letter-grade scorecard across key security domains </li>
+                            <li> Easy-to-understand report suitable for non-technical leadership </li>
+                            <li> Identifies your highest-priority gaps with recommended fixes </li>
+                            <li> Re-scored quarterly to track improvement over time </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> Most small businesses don't know where their biggest risks actually are, and this tells you exactly that. </template>
+                </ServiceCard>
+
+                <ServiceCard>
+                    <template v-slot:Name> Remote Work Security Kit </template>
+                    <template v-slot:Price> $400-$600 +$8/user </template>
+                    <template v-slot:List>
+                        <div class="grid grid-cols-1 gap-1">
+                            <li> VPN setup for secure remote access to company resources </li>
+                            <li> MFA enforcement across all remote-accessed accounts </li>
+                            <li> Remote work acceptable use policy document included </li>
+                            <li> Endpoint security check for all remote devices </li>
+                            <li> Minimum 5 users; scales with team size </li>
+                        </div>
+                    </template>
+                    <template v-slot:Why> Remote work expands your attack surface overnight, and most home setups have none of the protections your office does. </template>
+                </ServiceCard>
 
             </template>
         </ServiceCategory>
