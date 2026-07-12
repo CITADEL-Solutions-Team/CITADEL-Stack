@@ -1,6 +1,7 @@
 <template>
     <div 
-    class="border-2 border-(--Accent) rounded-lg 
+    class="border-2 border-(--Accent) rounded-lg
+    bg-linear-to-r from-(--MenuCard) to-(#03191C)
     mx-8 my-4 grid grid-cols-2"
     >
         <div class="p-4 col-span-2 flex flex-col border-b border-gray-500 py-1">
@@ -21,9 +22,9 @@
                     Put the list off things this service entails
                 </slot>
             </div>
-            <div class="col-span-2 border-l-4 border-(--Accent) pl-2 mr-1">
-                <h3 class="text-xl font-bold text-(--Accent) my-2 ">Why it matters:</h3>
-                <div class="text-(--SupText)">
+            <div class="col-span-2 border-l-4 border-(--Accent) pt-2 pb-4 pl-2 mr-1 bg-(--MenuCard)">
+                <h3 class="text-xl font-bold text-(--Accent) my-2">Why it matters:</h3>
+                <div class="pr-2">
                     <slot name="Why">
                         Explain it so people who aren't in tech can understand
                     </slot>
