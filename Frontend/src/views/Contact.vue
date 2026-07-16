@@ -13,9 +13,18 @@
     import axios from 'axios';
     import { ref, type Ref } from 'vue';
 
+    // Successfully sent the request
     const sentSuccessfully: Ref<boolean, boolean> = ref(false)
+
+    // Counts attempts to send subsequent requests after a success
     const alreadySent: Ref<number, number> = ref(0)
+
+    // Did the last request get rejected?
     const rejected: Ref<boolean, boolean> = ref(false)
+
+    // Was the request rejected and not a 429 or 400?
+    // Will be used for handling possible bad apples
+    const questionable: Ref<boolean, boolean> = ref(false)
 
     // Will be sent to the backend for processing.
     type ContactInfo = {
@@ -36,25 +45,25 @@
 
     async function SendForm(contactInfo: ContactInfo) {
         console.log(JSON.stringify(contactInfo, null, 2))
-        const response = await instance.post("/api/send-email", info)
-
+        const response = await instance.post("/api/test/send-email", info.value)
+        
         switch (response.status) {
-            
-            // 200
-            case axios.HttpStatusCode.Ok:
+            case axios.HttpStatusCode.Ok: // 200
                 sentSuccessfully.value = true
+                break              
 
-            // 400
-            case axios.HttpStatusCode.BadRequest:
-                rejected.value = true
+            case axios.HttpStatusCode.BadRequest: // 400
+                rejected.value = true // 
+                break               
 
-            // 429
-            case axios.HttpStatusCode.TooManyRequests:
+            case axios.HttpStatusCode.TooManyRequests: // 429
                 alreadySent.value += 1
-              
-            // Anything else
+                break               
+
             default:
-                console.log(JSON.stringify(response),null,2)
+                rejected.value = true
+                questionable.value = true
+                break // We ain't handling all that. :skull: :sob: LMFAO!!!!!!!!
         }
     }
 </script>
