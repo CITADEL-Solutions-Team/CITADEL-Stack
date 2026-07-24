@@ -1,5 +1,5 @@
 // Backend/internal/api/email_test.go
-package api
+package email
 
 import (
 	"encoding/json"
