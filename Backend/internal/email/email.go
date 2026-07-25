@@ -2,7 +2,6 @@ package email
 
 import (
 	"log"
-	// "net/http"
 	"os"
 	"strconv"
 	"strings"
@@ -11,7 +10,6 @@ import (
 	"time"
 
 	"gopkg.in/gomail.v2"
-	// "github.com/gin-gonic/gin"
 )
 
 // EmailTemplate holds email template data
