@@ -15,7 +15,7 @@ func addRoutes(router *gin.Engine) error {
 	})
 
 	// Add rout for client inquiries
-	router.POST("/api/send-email", HandleClientInquiry)
+	router.POST("/api/send-email", ClientInquiryHandler)
 
 	return nil
 }

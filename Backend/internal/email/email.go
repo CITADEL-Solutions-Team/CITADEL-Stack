@@ -2,7 +2,7 @@ package email
 
 import (
 	"log"
-	"net/http"
+	// "net/http"
 	"os"
 	"strconv"
 	"strings"
@@ -11,19 +11,8 @@ import (
 	"time"
 
 	"gopkg.in/gomail.v2"
-
-	"github.com/gin-gonic/gin"
+	// "github.com/gin-gonic/gin"
 )
-
-// ClientInfo represents the client data structure
-type ClientInfo struct {
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Phone    string `json:"phone"`
-	Business string `json:"business"`
-	Service  string `json:"service"`
-	Message  string `json:"message"`
-}
 
 // EmailTemplate holds email template data
 type EmailTemplate struct {
@@ -48,8 +37,8 @@ func SetTestingMode(enabled bool) {
 	isTesting = enabled
 }
 
-// inDuplicate checks if a submission is a duplicate based on email and timestamp
-func isDuplicate(email string) bool {
+// IsDuplicate checks if a submission is a duplicate based on email and timestamp
+func IsDuplicate(email string) bool {
 	trackerMutex.RLock()
 	defer trackerMutex.RUnlock()
 	if lastSubmit, exists := submissionTracker[email]; exists {
@@ -60,8 +49,8 @@ func isDuplicate(email string) bool {
 	return false
 }
 
-// recordSubmission records a successful submission to prevent duplicates
-func recordSubmission(email string) {
+// RecordSubmission records a successful submission to prevent duplicates
+func RecordSubmission(email string) {
 	trackerMutex.Lock()
 	defer trackerMutex.Unlock()
 	submissionTracker[email] = time.Now()
@@ -69,9 +58,9 @@ func recordSubmission(email string) {
 }
 
 // sendEmail creates and sends the email
-func SendEmail(client ClientInfo) error {
+func SendEmail(client interface{}) error {
 	if isTesting {
-		log.Printf("TEST MODE: Would send email to %s", client.Email)
+		log.Printf("TEST MODE: Would send email to %s", client.(map[string]interface{})["email"])
 		return nil
 	}
 
@@ -104,12 +93,12 @@ func SendEmail(client ClientInfo) error {
 
 	var emailBody = new(strings.Builder)
 	err = tmpl.Execute(emailBody, EmailTemplate{
-		ClientName:     client.Name,
-		ClientEmail:    client.Email,
-		ClientPhone:    client.Phone,
-		ClientBusiness: client.Business,
-		ClientService:  client.Service,
-		ClientMessage:  client.Message,
+		ClientName:     client.(map[string]interface{})["name"].(string),
+		ClientEmail:    client.(map[string]interface{})["email"].(string),
+		ClientPhone:    client.(map[string]interface{})["phone"].(string),
+		ClientBusiness: client.(map[string]interface{})["business"].(string),
+		ClientService:  client.(map[string]interface{})["service"].(string),
+		ClientMessage:  client.(map[string]interface{})["message"].(string),
 		Timestamp:      time.Now(),
 	})
 	if err != nil {
@@ -120,59 +109,11 @@ func SendEmail(client ClientInfo) error {
 	m := gomail.NewMessage()
 	m.SetHeader("From", username)
 	m.SetHeader("To", to)
-	m.SetHeader("Subject", "New Client Inquiry -"+client.Name)
+	m.SetHeader("Subject", "New Client Inquiry -"+client.(map[string]interface{})["name"].(string))
 	m.SetBody("text/plain", emailBody.String())
 
 	// Send Email
 	d := gomail.NewDialer(stmpHost, port, username, password)
 
 	return d.DialAndSend(m)
-}
-
-// ClientInquiryHandler handles incoming client inquiries
-func ClientInquiryHandler(c *gin.Context) {
-	var clientInfo ClientInfo
-
-	// Bind JSON request to struct
-	if err := c.ShouldBindJSON(&clientInfo); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error":   "Invalid request data",
-			"message": err.Error(),
-		})
-		return
-	}
-
-	// Validate required fields
-	if clientInfo.Name == "" || clientInfo.Email == "" {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Name and Email are required",
-		})
-		return
-	}
-
-	// Check for duplicate submissions (simple rate limiting)
-	if isDuplicate(clientInfo.Email) {
-		c.JSON(http.StatusTooManyRequests, gin.H{
-			"error": "Duplicate submission detected. Please wait before submitting again.",
-		})
-		return
-	}
-
-	// Send email
-	if err := SendEmail(clientInfo); err != nil {
-		log.Printf("Failed to send email: %v", err)
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "Failed to send email",
-		})
-		return
-	}
-
-	// Record successful submission
-	recordSubmission(clientInfo.Email)
-
-	// Return success response
-	c.JSON(http.StatusOK, gin.H{
-		"message": "Inquiry received and email send successfully",
-		"client":  clientInfo,
-	})
 }

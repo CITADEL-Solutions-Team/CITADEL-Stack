@@ -1,5 +1,5 @@
 // Backend/internal/api/email_test.go
-package email
+package api
 
 import (
 	"encoding/json"
@@ -7,12 +7,13 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Opulent0/CITADEL_Solutions_Stack/internal/email"
 	"github.com/gin-gonic/gin"
 )
 
 func TestClientInquiryHandler(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Create a test request body
 	requestBody := `{
@@ -53,7 +54,7 @@ func TestClientInquiryHandler(t *testing.T) {
 
 func TestClientInquiryHandlerInvalidData(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Create a test request with invalid data
 	requestBody := `{
@@ -79,7 +80,7 @@ func TestClientInquiryHandlerInvalidData(t *testing.T) {
 
 func TestClientInquiryHandlerMissingRequiredFields(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with missing name
 	requestBody := `{
@@ -124,7 +125,7 @@ func TestClientInquiryHandlerMissingRequiredFields(t *testing.T) {
 
 func TestClientInquiryHandlerEmptyFields(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with empty name and email
 	requestBody := `{
@@ -150,7 +151,7 @@ func TestClientInquiryHandlerEmptyFields(t *testing.T) {
 
 func TestClientInquiryHandlerValidServiceField(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with service field
 	requestBody := `{
@@ -177,7 +178,7 @@ func TestClientInquiryHandlerValidServiceField(t *testing.T) {
 
 func TestClientInquiryHandlerEmptyServiceField(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with empty service field
 	requestBody := `{
@@ -204,7 +205,7 @@ func TestClientInquiryHandlerEmptyServiceField(t *testing.T) {
 
 func TestClientInquiryHandlerLongServiceField(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with very long service field
 	longService := strings.Repeat("A", 1000)
@@ -232,7 +233,7 @@ func TestClientInquiryHandlerLongServiceField(t *testing.T) {
 
 func TestClientInquiryHandlerSpecialCharactersInService(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with special characters in service field
 	requestBody := `{
@@ -259,7 +260,7 @@ func TestClientInquiryHandlerSpecialCharactersInService(t *testing.T) {
 
 func TestClientInquiryHandlerNoServiceField(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test without service field (should still work)
 	requestBody := `{
@@ -285,7 +286,7 @@ func TestClientInquiryHandlerNoServiceField(t *testing.T) {
 
 func TestClientInquiryHandlerOnlyRequiredFields(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with only required fields (name and email)
 	requestBody := `{
@@ -309,7 +310,7 @@ func TestClientInquiryHandlerOnlyRequiredFields(t *testing.T) {
 
 func TestClientInquiryHandlerInvalidJSON(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with invalid JSON
 	requestBody := `{
@@ -335,7 +336,7 @@ func TestClientInquiryHandlerInvalidJSON(t *testing.T) {
 
 func TestClientInquiryHandlerValidEmailFormat(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with valid email format
 	requestBody := `{
@@ -362,7 +363,7 @@ func TestClientInquiryHandlerValidEmailFormat(t *testing.T) {
 
 func TestClientInquiryHandlerInvalidEmailFormat(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Test with invalid email format
 	requestBody := `{
@@ -389,7 +390,7 @@ func TestClientInquiryHandlerInvalidEmailFormat(t *testing.T) {
 
 func TestDuplicateSubmissionPrevention(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Create a test request body
 	requestBody := `{
@@ -427,7 +428,7 @@ func TestDuplicateSubmissionPrevention(t *testing.T) {
 
 func TestDuplicateSubmissionAfterWindow(t *testing.T) {
 	// Enable testing mode
-	SetTestingMode(true)
+	email.SetTestingMode(true)
 
 	// Create a test request body
 	requestBody := `{
