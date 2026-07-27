@@ -3,5 +3,6 @@ export type Bio = {
     Team: string,
     Role: string,
     Color: string,
-    To: string
+    To: string,
+    Rare: Boolean
 }

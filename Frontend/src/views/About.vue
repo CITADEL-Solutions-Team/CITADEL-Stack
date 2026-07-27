@@ -21,42 +21,48 @@
             Team: "CS",
             Role: "President",
             Color: "#FF1E1E",
-            To: "/about/tgeorgi"
+            To: "/about/tgeorgi",
+            Rare: true,
         },
         {
             Name: "Dylan Clark",
             Team: "DEV",
             Role: "Vice President",
             Color: "#1e90ff",
-            To: "/about/dclark"
+            To: "/about/dclark",
+            Rare: true,
         },
         {
             Name: "Nick Rutgier",
             Team: "DEV",
             Role: "Backend Lead",
             Color: "#1e90ff",
-            To: "/about/nrutigier"
+            To: "/about/nrutigier",
+            Rare: false,
         },
         {
             Name: "Tommy O'Donnell",
             Team: "DEV",
             Role: "Frontend Dev",
             Color: "#1e90ff",
-            To: "/about/todonnell"
+            To: "/about/todonnell",
+            Rare: false,
         },
         {
             Name: "Ben Palotai",
             Team: "DEV",
             Role: "Frontend Dev",
             Color: "#1e90ff",
-            To: "/about/bpalotai"
+            To: "/about/bpalotai",
+            Rare: false,
         },
         {
             Name: "Lune Guevara",
             Team: "DEV",
             Role: "Frontend Dev",
             Color: "#1e90ff",
-            To: "/about/lguevara"
+            To: "/about/lguevara",
+            Rare: false,
         }
     ]
 </script>
