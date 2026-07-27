@@ -19,9 +19,29 @@ const router = createRouter({
         name: "OurMission",
     },
     {
-        component: () => import('@/views/Services.vue'),
-        path: "/services-overview",
+        component: () => import('@/views/Services/Services.vue'),
+        path: "/services",
         name: "OurServices",
+    },
+    {
+        component: () => import('@/views/Services/CyberSec.vue'),
+        path: "/services/cyber-sec",
+        name: "CyberSecServices"
+    },
+    {
+        component: () => import('@/views/Services/HomeSec.vue'),
+        path: "/services/home-sec",
+        name: "HomeSec",
+    },
+    {
+        component: () => import('@/views/Services/PCRepairs.vue'),
+        path: "/services/pc-repairs",
+        name: "PCRepairs",
+    },
+    {
+        component: () => import('@/views/Services/WebDev.vue'),
+        path: "/services/web-dev",
+        name: "WebDev",
     },
     {
         component: () => import('@/views/Contact.vue'),
