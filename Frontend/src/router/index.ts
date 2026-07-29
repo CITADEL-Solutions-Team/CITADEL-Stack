@@ -44,7 +44,7 @@ const router = createRouter({
         name: "WebDev",
     },
     {
-        component: () => import('@/views/Contact.vue'),
+        component: () => import('@/views/Contact/Contact.vue'),
         path: "/contact-us",
         name: "ContactUs",
     },
