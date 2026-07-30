@@ -1,6 +1,6 @@
 <template>
     <div id="Section"
-    class=" px-16 py-30 gap-12
+    class="py-30 gap-12
     flex"
     >
         <div id="Header"
