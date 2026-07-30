@@ -1,5 +1,5 @@
 <template>
-    <div class="h-13 items-center flex 
+    <nav class="h-13 items-center flex 
     divide-x-2 divide-(--Accent) 
     border-x-2 border-x-(--Accent)
     border-b-2 border-b-(--Accent)
@@ -13,7 +13,7 @@
             >
             {{ Item.label }}
         </RouterLink>
-    </div>
+    </nav>
 </template>
 
 <script setup lang="ts">
@@ -23,7 +23,7 @@
     const selected: Ref<number,number> = ref(0)
 
 
-    const props = defineProps<{
+    const props = defineProps <{
         NavItems: { label: string, to: string }[]
     }>()
 </script>

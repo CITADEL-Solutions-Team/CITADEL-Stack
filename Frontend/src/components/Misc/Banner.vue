@@ -1,5 +1,5 @@
 <template>
-    <header class="
+    <div class="
     w-screen px-16
     h-80
     bg-linear-to-r from-(--MenuCard) from-60% to-(#03191C)
@@ -28,5 +28,5 @@
                 </RouterLink>
             </div>
         </div>
-    </header>
+    </div>
 </template>
