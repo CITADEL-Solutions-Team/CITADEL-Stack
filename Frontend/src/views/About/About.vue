@@ -1,7 +1,6 @@
 <template>
     <div class="overflow-x-hidden">
-        <Deck
-        :members="bios"></Deck>
+        <Deck :members="bios"></Deck>
     </div>
 </template>
 

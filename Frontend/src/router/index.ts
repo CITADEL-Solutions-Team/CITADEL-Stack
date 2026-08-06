@@ -10,15 +10,16 @@ const router = createRouter({
     },
     {
         path: "/about-us",
-        name: "AboutUs",
         children: [
             {
                 path: "",
                 component: () => import('@/views/About/About.vue'),
+                name: "AboutUs"
             },
             {
-                path: ":id",
-                component: () => import('@/views/About/TeamMember.vue')
+                path: ":slug",
+                component: () => import('@/views/About/TeamMember.vue'),
+                name: "AboutTeamMember",
             }
         ]
     },
@@ -29,10 +30,10 @@ const router = createRouter({
     },
     {
         path: "/services",
-        name: "OurServices",
 		children: [
             {
                 path: "",
+                name: "OurServices",    
                 component: () => import('@/views/Services/Services.vue'),
             },
 			{
