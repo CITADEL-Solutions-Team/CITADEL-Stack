@@ -7,15 +7,27 @@
         </Banner>
         <Nav class="flex-none" :NavItems="NavItems"/>
     </header>
-    <body class="px-8 md:px-16 lg:px-32 xl:px-48">
+    <body class="px-8 md:px-16 lg:px-24">
         <RouterView class="grow" />
     </body>
-    <footer>
+    <footer>    
         <Footer
-        class="px-8 md:px-16 lg:px-32 xl:px-48"
+        class="px-8 md:px-16 lg:px-24"
         :SocialsLinks="footerSocials"
         :Sections="Sections"
         >
+            <template v-slot:CompanyName>
+                Citadel Solutions
+            </template>
+            <template v-slot:Email>
+                services@citadelsolutions.tech
+            </template>
+            <template v-slot:Phone>
+                630-360-2350
+            </template>
+            <template v-slot:Tagline>
+                Secure Today. Protect Tomorrow.
+            </template>
         </Footer>
     </footer>  
 </template>
@@ -24,6 +36,11 @@
     import Banner from './components/Misc/Banner.vue';
     import Nav from './components/Misc/Nav.vue';
     import Footer from './components/Misc/Footer.vue';
+    
+    import LinkedInIcon from '@/assets/Socials/InBug-White.png'
+    import InstagramIcon from '@/assets/Socials/Instagram_Glyph_White.png'
+    import TiktokIcon from '@/assets/Socials/TikTok_Icon_Black_Circle (1).png'
+    import YoutubeIcon from '@/assets/Socials/yt_icon_white_digital.png'
  
     const NavItems: { label: string, to: string }[] = [
         {
@@ -45,6 +62,83 @@
         
     ]
 
-    const footerSocials: {Icon:any, Label:string, To:string}[] = []
-    const Sections: {Name: string, Links: {Label: string, To: string}[],}[] = []
+    const footerSocials: {Icon:any, Label:string, To:string}[] = [
+        {
+            Icon: LinkedInIcon, 
+            Label: "Linked In", 
+            To: "https://www.linkedin.com/in/citadel-solutions/",
+        },
+        {
+            Icon: InstagramIcon,
+            Label: "Instagram", 
+            To: "https://www.instagram.com/citadel.solutions.llc/",
+        },
+        {
+            Icon: TiktokIcon, 
+            Label: "Tiktok", 
+            To: "https://www.tiktok.com/@citadel.solutions",
+        },
+        {
+            Icon: YoutubeIcon,
+            Label: "Youtube",
+            To: "https://www.youtube.com/@CitadelSolutionsLLC",
+        }
+    ]
+    const Sections: {Name: string, Links: {Label: string, To: string}[],}[] = [
+        {
+            Name: "Learn More",
+            Links: [
+                {
+                    Label: "About Us",
+                    To: "/about-us",
+                },
+                {
+                    Label: "Customer Stories",
+                    To: "/customer-stories",
+                },
+                {
+                    Label: "Case Studies",
+                    To: "/case-studies",
+                }
+            ]
+        },
+        {
+            Name: "Legal",
+            Links: [
+                {
+                    Label: "Privacy Policy",
+                    To: "",
+                },
+                {
+                    Label: "Cookie Policy",
+                    To: "",
+                },
+                {
+                    Label: "Terms of Service",
+                    To: "",
+                },
+                {
+                    Label: "Accessibility Statement",
+                    To: "",
+                }
+            ]
+        },
+        {
+            Name: "Support",
+            Links: [
+                {
+                    Label: "Contact Us",
+                    To: "",
+                },
+                {
+                    Label: "FAQ",
+                    To: "",
+                },
+                {
+                    Label: "Glossary",
+                    To: "",
+                }
+            ]
+        }
+    ]
 </script>
