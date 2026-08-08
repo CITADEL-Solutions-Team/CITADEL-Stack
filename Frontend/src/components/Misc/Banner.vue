@@ -3,8 +3,9 @@
     w-screen px-16
     h-80
     bg-linear-to-r from-(--MenuCard) from-60% to-(#03191C)
-    border-2 border-(--Accent)
-    ">
+    border-2 border-(--Accent)"
+    aria-label="Banner"
+    >
         <div class="px-16 py-6 flex items-center h-full">
             <div class="flex-1">
                 <h1 class="
@@ -21,7 +22,8 @@
                 flex-none">
                 <RouterLink 
                 :to="'\/'"
-                class="">
+                class=""
+                aria-label="Home Button">
                     <slot name="Logo">
                         LOGO HERE
                     </slot>

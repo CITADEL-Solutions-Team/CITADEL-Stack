@@ -14,6 +14,7 @@
         <Footer
         class="px-8 md:px-16 lg:px-32 xl:px-48"
         :SocialsLinks="footerSocials"
+        :Sections="Sections"
         >
         </Footer>
     </footer>  
@@ -24,7 +25,6 @@
     import Nav from './components/Misc/Nav.vue';
     import Footer from './components/Misc/Footer.vue';
  
-
     const NavItems: { label: string, to: string }[] = [
         {
             label: "About Us",
@@ -45,5 +45,6 @@
         
     ]
 
-    const footerSocials: {icon:any, to:string}[] = []
+    const footerSocials: {Icon:any, Label:string, To:string}[] = []
+    const Sections: {Name: string, Links: {Label: string, To: string}[],}[] = []
 </script>

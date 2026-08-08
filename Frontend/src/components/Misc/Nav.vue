@@ -4,6 +4,7 @@
     border-x-2 border-x-(--Accent)
     border-b-2 border-b-(--Accent)
     overflow-hidden"
+    aria-label="Header"
     >
         <RouterLink 
             :to="Item.to"
