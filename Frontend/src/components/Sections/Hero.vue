@@ -1,7 +1,6 @@
 <template>
     <div 
-    class="flex flex-col items-center
-    px-6 py-20"
+    class="flex flex-col items-center py-20"
     >
         <div id="Text"
         class="px-20 py-4"

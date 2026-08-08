@@ -40,3 +40,6 @@ __screenshots__/
 
 # Internal Secrets
 ./utilities/dns-updater/data.json
+
+# Don't include any emacs local config files
+.dir-locals.el
