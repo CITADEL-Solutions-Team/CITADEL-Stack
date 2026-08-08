@@ -107,19 +107,19 @@
             Links: [
                 {
                     Label: "Privacy Policy",
-                    To: "",
+                    To: "/policies/privacy-policy",
                 },
                 {
                     Label: "Cookie Policy",
-                    To: "",
+                    To: "/policies/cookie-policy",
                 },
                 {
                     Label: "Terms of Service",
-                    To: "",
+                    To: "/policies/terms-of-service",
                 },
                 {
                     Label: "Accessibility Statement",
-                    To: "",
+                    To: "/policies/accessibility-statement",
                 }
             ]
         },
@@ -128,15 +128,15 @@
             Links: [
                 {
                     Label: "Contact Us",
-                    To: "",
+                    To: "/contact-us",
                 },
                 {
                     Label: "FAQ",
-                    To: "",
+                    To: "/faq",
                 },
                 {
                     Label: "Glossary",
-                    To: "",
+                    To: "/glossary",
                 }
             ]
         }
