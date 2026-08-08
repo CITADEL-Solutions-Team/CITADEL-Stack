@@ -1,15 +1,15 @@
 <template>
-  <nav class="grid grid-cols-2"
+  <nav class="grid grid-cols-2 border-t-4 border-(--Accent) pt-6"
   aria-label="Footer"
   >
     <!-- Left Section that holds contact info and socials -->
-    <div class="grid grid-rows-2 gap-16">
+    <div class="grid grid-rows-2 gap-12">
       <!-- Name, Email, phone -->
       <div>
         <!-- Business Name -->
-        <h1 class="text-4xl text-(--Accent)">
+        <h1 class="text-4xl text-(--Accent) pb-2 font-semibold">
           <slot name="CompanyName">
-            Citadel Solutions
+            Business Name Here
           </slot>
         </h1>
 
@@ -32,17 +32,17 @@
       <div>
 
         <!-- Tagline -->
-        <h2 class="text-2xl">
+        <h2 class="text-2xl mb-2">
           <slot name="Tagline">
-            Secure Today. Protect Tomorrow.
+            Tagline Here
           </slot>
         </h2>
 
         <!-- Socials -->
-        <ul>
+        <ul class="flex gap-4">
           <li v-for="social in SocialsLinks" :key="social.Label">
             <a :href="social.To" :aria-label="social.Label">
-              <component :is="social.Icon" aria-hidden="true" focusable="false" />
+              <img :src="social.Icon" alt="" class="w-6 h-6" />
             </a>
           </li>
         </ul>
@@ -50,14 +50,23 @@
     </div>
 
     <!-- Right Section that holds links to pages such as policy -->
-    <div>
-      
+    <div class="justify-self-end flex gap-18 pt-8">
+      <div v-for="Section in Sections" :key="Section.Name">
+        <!-- Section Header -->
+        <h2 class="font-bold text-lg pb-4"> {{ Section.Name }} </h2>
+
+        <!-- Set Of links -->
+        <ul class="flex flex-col gap-2 text-pretty">
+          <li v-for="link in Section.Links" :key="link.Label">
+            <a :href="link.To">{{ link.Label }}</a>
+          </li>
+        </ul>
+      </div>
     </div>    
   </nav>
 </template>
 
 <script setup lang="ts">
-
   const props = defineProps <{    
     SocialsLinks: {Icon:any, Label:string, To:string}[],
     Sections: {Name: string, Links: {Label: string, To: string}[],}[]
