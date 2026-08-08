@@ -44,13 +44,16 @@
             class="card-inner"
             :style="{ transform: IsFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'}"
             >
-                <div id="CardFront"
-                class="card-front
-                flex flex-col
-                px-6 py-4
-                border-4 rounded-2xl relative"
-                :style="{'border-color': Info.Color}"
-                >
+                    <div id="CardFront"
+                    class="card-front
+                    flex flex-col
+                    px-6 py-4
+                    border-4 rounded-2xl relative"
+                    :style="{
+                        'border-color': Info.Color,
+                        'pointer-events': IsFlipped ? 'none' : 'auto'
+                    }"
+                    >
                      <!-- Holo border ring for the FRONT face. Sits on top of the
                           real border-4, same rounded-2xl radius, ring-shaped via
                           mask-composite (see .holo-border in <style>). -->
@@ -95,7 +98,10 @@
                 flex flex-col
                 px-[4cqw] py-[6cqw]
                 border-4 rounded-2xl relative"
-                :style="{'border-color': Info.Color}"
+                :style="{
+                    'border-color': Info.Color,
+                    'pointer-events': IsFlipped ? 'auto' : 'none'
+                }"
                 >
                     <!-- Holo border ring for the BACK face. Independent element from
                          the front's ring since each face is a separate absolutely-
@@ -126,7 +132,6 @@
                         <p class="text-[6cqw] pb-2">{{ Info.Role }}</p>
                         <RouterLink
                         :to="Info.To" class="text-[6.25cqw] text-blue-400 italic py-1">About Me</RouterLink>
-
                     </div>
                 </div>    <!-- always rendered, pre-rotated 180deg, backface-visibility hidden -->
             </div>
@@ -259,6 +264,7 @@
         mask-position: center;
         mask-origin: content-box;
         mask-clip: content-box;
+        pointer-events: none;
     }
 
     /* ---------- HOLO: TEXT ----------
@@ -281,6 +287,7 @@
         -webkit-background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
+        pointer-events: none;
     }
 
     /* ---------- HOLO: BORDER ----------
@@ -310,6 +317,7 @@
             linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor; /* Safari's older syntax for the same idea */
         mask-composite: exclude;     /* standard syntax */
+        pointer-events: none;
     }
 
     @media (prefers-reduced-motion: reduce) {

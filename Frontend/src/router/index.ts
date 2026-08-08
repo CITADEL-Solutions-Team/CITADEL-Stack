@@ -4,14 +4,24 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-        component: () => import('@/views/Home.vue'),
+        component: () => import('@/views/Services/CyberSec.vue'),
         path: "/",
         name: "Home",
     },
     {
-        component: () => import('@/views/About.vue'),
         path: "/about-us",
-        name: "AboutUs",
+        children: [
+            {
+                path: "",
+                component: () => import('@/views/About/About.vue'),
+                name: "AboutUs"
+            },
+            {
+                path: ":slug",
+                component: () => import('@/views/About/TeamMember.vue'),
+                name: "AboutTeamMember",
+            }
+        ]
     },
     {
         component: () => import('@/views/Mission.vue'),
@@ -19,29 +29,34 @@ const router = createRouter({
         name: "OurMission",
     },
     {
-        component: () => import('@/views/Services/Services.vue'),
         path: "/services",
-        name: "OurServices",
-    },
-    {
-        component: () => import('@/views/Services/CyberSec.vue'),
-        path: "/services/cyber-sec",
-        name: "CyberSecServices"
-    },
-    {
-        component: () => import('@/views/Services/HomeSec.vue'),
-        path: "/services/home-sec",
-        name: "HomeSec",
-    },
-    {
-        component: () => import('@/views/Services/PCRepairs.vue'),
-        path: "/services/pc-repairs",
-        name: "PCRepairs",
-    },
-    {
-        component: () => import('@/views/Services/WebDev.vue'),
-        path: "/services/web-dev",
-        name: "WebDev",
+		children: [
+            {
+                path: "",
+                name: "OurServices",    
+                component: () => import('@/views/Services/Services.vue'),
+            },
+			{
+				component: () => import('@/views/Services/CyberSec.vue'),
+        		path: "/services/cyber-sec",
+        		name: "CyberSecServices"
+    		},
+    		{
+				component: () => import('@/views/Services/HomeSec.vue'),
+        		path: "/services/home-sec",
+        		name: "HomeSec",
+    		},
+    		{
+				component: () => import('@/views/Services/PCRepairs.vue'),
+        		path: "/services/pc-repairs",
+        		name: "PCRepairs",
+    		},
+    		{
+				component: () => import('@/views/Services/WebDev.vue'),
+        		path: "/services/web-dev",
+        		name: "WebDev",
+    		}		
+		],
     },
     {
         component: () => import('@/views/Contact/Contact.vue'),
@@ -52,6 +67,42 @@ const router = createRouter({
         component: () => import('@/views/DevPage.vue'),
         path: "/dev",
         name: "ComponentPreview"
+    },
+    {
+        path: "/policies",
+        name: "Policies",
+        children: [
+            {
+                path: "privacy-policy",
+                name: "PrivacyPolicy",
+                component: () => import('@/views/Policies/Privacy.vue')
+            },
+            {
+                path: "cookie-policy",
+                name: "CookiePolicy",
+                component: () => import('@/views/Policies/Cookies.vue')
+            },
+            {
+                path: "terms-of-service",
+                name: "TermsOfService",
+                component: () => import('@/views/Policies/TermsOfService.vue')
+            },
+            {
+                path: "accessibility-statement",
+                name: "AccessibilityStatement",
+                component: () => import('@/views/Policies/Accessibility.vue')
+            }
+        ],
+    },
+    {
+        path: "/faq",
+        name: "FAQ",
+        component: () => import('@/views/FAQ.vue')
+    },
+    {
+        path: "/glossary",
+        name: "Glossary",
+        component: () => import('@/views/Glossary.vue')
     }
   ]
 })
