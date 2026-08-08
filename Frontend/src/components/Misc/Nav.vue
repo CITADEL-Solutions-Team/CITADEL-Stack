@@ -1,29 +1,21 @@
 <template>
-    <nav class="h-13 items-center flex 
-    divide-x-2 divide-(--Accent) 
-    border-x-2 border-x-(--Accent)
-    border-b-2 border-b-(--Accent)
-    overflow-hidden"
-    aria-label="Header"
-    >
-        <RouterLink 
-            :to="Item.to"
-            class="flex-1 px-4 py-4 text-center bg-(--MenuCard) [&.router-link-active]:outline-(--Accent) [&.router-link-active]:outline-2 outline-offset-[-.5rem]"
-            v-for="Item in NavItems"
-            :key="Item.to"
+    <nav class="border-y border-(--Accent) w-screen" aria-label="Main Nav Bar">
+        <ul class="grid grid-cols-4 gap-2 justify-center text-center px-6.5 py-2">
+            <li 
+            class="py-1 my-2 bg-(--MenuCard) border border-(--Accent) rounded-xl"
+            v-for="nav in NavItems"
             >
-            {{ Item.label }}
-        </RouterLink>
+                <RouterLink :to="nav.to">
+                    <button>
+                        {{ nav.label }}
+                    </button>
+                </RouterLink>
+            </li>
+        </ul>
     </nav>
 </template>
 
 <script setup lang="ts">
-    import { ref, type Ref } from 'vue';
-
-    // Keep track of which section is selected
-    const selected: Ref<number,number> = ref(0)
-
-
     const props = defineProps <{
         NavItems: { label: string, to: string }[]
     }>()
