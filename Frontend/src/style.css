@@ -8,9 +8,10 @@
 @import "tailwindcss";
 
 :root {
-  --Background: #0C1218;
+  --Background: #000000;
   --Accent: #1E90FF;
-  --MenuCard: #19334D;
+  --MenuCard: #072A4C;
+  --AltCard: #2F4C68;
   --Text: #FFFFFF;
   --SupText: #ffffff8c;
 
@@ -29,4 +30,8 @@
   html, body {
     overflow-x: hidden;
   }
+}
+
+@theme {
+  --font-exo: 'Exo', sans-serif;
 }
