@@ -5,10 +5,12 @@
             class="py-1 my-2 bg-(--MenuCard) border border-(--Accent) rounded-xl"
             v-for="nav in NavItems"
             >
-                <RouterLink :to="nav.to">
-                    <button>
-                        {{ nav.label }}
-                    </button>
+                <RouterLink class="w-full" :to="nav.to">
+                    <div class="w-full">
+                        <button>
+                                {{ nav.label }}
+                        </button>
+                    </div>        
                 </RouterLink>
             </li>
         </ul>
