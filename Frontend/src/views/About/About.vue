@@ -21,7 +21,7 @@
         {
             Name: "Tanis Georgi",
             Team: "CS",
-            Role: "President",
+            Role: "CEO",
             Color: "#FF1E1E",
             To: "/about-us/tgeorgi",
             Rare: true,
@@ -29,7 +29,7 @@
         {
             Name: "Dylan Clark",
             Team: "DEV",
-            Role: "Vice President",
+            Role: "President",
             Color: "#1e90ff",
             To: "/about-us/dclark",
             Rare: true,
