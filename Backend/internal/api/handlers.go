@@ -8,19 +8,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// ClientInfo represents the client data structure
-type ClientInfo struct {
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Phone    string `json:"phone"`
-	Business string `json:"business"`
-	Service  string `json:"service"`
-	Message  string `json:"message"`
-}
-
 // ClientInquiryHandler handles incoming client inquiries
 func ClientInquiryHandler(c *gin.Context) {
-	var clientInfo ClientInfo
+	var clientInfo email.ClientInfo
 
 	// Bind JSON request to struct
 	if err := c.ShouldBindJSON(&clientInfo); err != nil {
@@ -48,17 +38,9 @@ func ClientInquiryHandler(c *gin.Context) {
 	}
 
 	// Convert ClientInfo to a map for compatibiltiy with existing SendEmail function
-	clientMap := map[string]interface{}{
-		"name":     clientInfo.Name,
-		"email":    clientInfo.Email,
-		"phone":    clientInfo.Phone,
-		"business": clientInfo.Business,
-		"service":  clientInfo.Service,
-		"message":  clientInfo.Message,
-	}
 
 	// Send email
-	if err := email.SendEmail(clientMap); err != nil {
+	if err := email.SendEmail(clientInfo); err != nil {
 		log.Printf("Failed to send email: %v", err)
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "Failed to send email",

@@ -1,5 +1,5 @@
 // Backend/internal/api/email_test.go
-package api
+package email_test
 
 import (
 	"encoding/json"
@@ -7,6 +7,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Opulent0/CITADEL_Solutions_Stack/internal/api"
 	"github.com/Opulent0/CITADEL_Solutions_Stack/internal/email"
 	"github.com/gin-gonic/gin"
 )
@@ -36,7 +37,7 @@ func TestClientInquiryHandler(t *testing.T) {
 	c.Request = req
 
 	// Call the handler
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	// Check the response
 	if w.Code != 200 {
@@ -71,7 +72,7 @@ func TestClientInquiryHandlerInvalidData(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 400 {
 		t.Errorf("Expected status 400, got %d", w.Code)
@@ -96,7 +97,7 @@ func TestClientInquiryHandlerMissingRequiredFields(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 400 {
 		t.Errorf("Expected status 400 for missing name, got %d", w.Code)
@@ -116,7 +117,7 @@ func TestClientInquiryHandlerMissingRequiredFields(t *testing.T) {
 	c, _ = gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 400 {
 		t.Errorf("Expected status 400 for missing email, got %d", w.Code)
@@ -142,7 +143,7 @@ func TestClientInquiryHandlerEmptyFields(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 400 {
 		t.Errorf("Expected status 400 for empty name and email, got %d", w.Code)
@@ -169,7 +170,7 @@ func TestClientInquiryHandlerValidServiceField(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 200 {
 		t.Errorf("Expected status 200 for valid service field, got %d", w.Code)
@@ -196,7 +197,7 @@ func TestClientInquiryHandlerEmptyServiceField(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 200 {
 		t.Errorf("Expected status 200 for empty service field, got %d", w.Code)
@@ -224,7 +225,7 @@ func TestClientInquiryHandlerLongServiceField(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 200 {
 		t.Errorf("Expected status 200 for long service field, got %d", w.Code)
@@ -251,7 +252,7 @@ func TestClientInquiryHandlerSpecialCharactersInService(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 200 {
 		t.Errorf("Expected status 200 for special characters in service field, got %d", w.Code)
@@ -277,7 +278,7 @@ func TestClientInquiryHandlerNoServiceField(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 200 {
 		t.Errorf("Expected status 200 without service field, got %d", w.Code)
@@ -301,7 +302,7 @@ func TestClientInquiryHandlerOnlyRequiredFields(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 200 {
 		t.Errorf("Expected status 200 with only required fields, got %d", w.Code)
@@ -327,7 +328,7 @@ func TestClientInquiryHandlerInvalidJSON(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 400 {
 		t.Errorf("Expected status 400 for invalid JSON, got %d", w.Code)
@@ -354,7 +355,7 @@ func TestClientInquiryHandlerValidEmailFormat(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 200 {
 		t.Errorf("Expected status 200 for valid email format, got %d", w.Code)
@@ -381,7 +382,7 @@ func TestClientInquiryHandlerInvalidEmailFormat(t *testing.T) {
 	c, _ := gin.CreateTestContext(w)
 	c.Request = req
 
-	ClientInquiryHandler(c)
+	api.ClientInquiryHandler(c)
 
 	if w.Code != 200 {
 		t.Errorf("Expected status 200 for invalid email (validation happens in handler), got %d", w.Code)
@@ -407,7 +408,7 @@ func TestDuplicateSubmissionPrevention(t *testing.T) {
 	w1 := httptest.NewRecorder()
 	c1, _ := gin.CreateTestContext(w1)
 	c1.Request = req
-	ClientInquiryHandler(c1)
+	api.ClientInquiryHandler(c1)
 
 	if w1.Code != 200 {
 		t.Errorf("First submission should succeed, got %d", w1.Code)
@@ -419,7 +420,7 @@ func TestDuplicateSubmissionPrevention(t *testing.T) {
 	w2 := httptest.NewRecorder()
 	c2, _ := gin.CreateTestContext(w2)
 	c2.Request = req
-	ClientInquiryHandler(c2)
+	api.ClientInquiryHandler(c2)
 
 	if w2.Code != 429 {
 		t.Errorf("Second submission should be blocked as duplicate, got %d", w2.Code)
@@ -445,7 +446,7 @@ func TestDuplicateSubmissionAfterWindow(t *testing.T) {
 	w1 := httptest.NewRecorder()
 	c1, _ := gin.CreateTestContext(w1)
 	c1.Request = req
-	ClientInquiryHandler(c1)
+	api.ClientInquiryHandler(c1)
 
 	if w1.Code != 200 {
 		t.Errorf("First submission should succeed, got %d", w1.Code)
@@ -462,7 +463,7 @@ func TestDuplicateSubmissionAfterWindow(t *testing.T) {
 	w2 := httptest.NewRecorder()
 	c2, _ := gin.CreateTestContext(w2)
 	c2.Request = req
-	ClientInquiryHandler(c2)
+	api.ClientInquiryHandler(c2)
 
 	// The second request should either succeed or fail depending on how the duplicate detection works
 	// In our current implementation, it will likely be blocked since we're not manipulating time

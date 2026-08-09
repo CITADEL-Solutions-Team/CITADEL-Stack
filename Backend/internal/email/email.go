@@ -12,17 +12,6 @@ import (
 	"gopkg.in/gomail.v2"
 )
 
-// EmailTemplate holds email template data
-type EmailTemplate struct {
-	ClientName     string
-	ClientEmail    string
-	ClientMessage  string
-	ClientPhone    string
-	ClientBusiness string
-	ClientService  string
-	Timestamp      time.Time
-}
-
 var (
 	isTesting = false // Flag to enable testing mode
 	// For duplicate submission prevention
@@ -56,9 +45,9 @@ func RecordSubmission(email string) {
 }
 
 // sendEmail creates and sends the email
-func SendEmail(client interface{}) error {
+func SendEmail(client ClientInfo) error {
 	if isTesting {
-		log.Printf("TEST MODE: Would send email to %s", client.(map[string]interface{})["email"])
+		log.Printf("TEST MODE: Would send email to %s", client.Email)
 		return nil
 	}
 
@@ -91,13 +80,13 @@ func SendEmail(client interface{}) error {
 
 	var emailBody = new(strings.Builder)
 	err = tmpl.Execute(emailBody, EmailTemplate{
-		ClientName:     client.(map[string]interface{})["name"].(string),
-		ClientEmail:    client.(map[string]interface{})["email"].(string),
-		ClientPhone:    client.(map[string]interface{})["phone"].(string),
-		ClientBusiness: client.(map[string]interface{})["business"].(string),
-		ClientService:  client.(map[string]interface{})["service"].(string),
-		ClientMessage:  client.(map[string]interface{})["message"].(string),
-		Timestamp:      time.Now(),
+		Info: ClientInfo{Name: client.Name,
+			Email:    client.Email,
+			Phone:    client.Phone,
+			Business: client.Business,
+			Service:  client.Service,
+			Message:  client.Message},
+		Timestamp: time.Now(),
 	})
 	if err != nil {
 		return err
@@ -107,7 +96,7 @@ func SendEmail(client interface{}) error {
 	m := gomail.NewMessage()
 	m.SetHeader("From", username)
 	m.SetHeader("To", to)
-	m.SetHeader("Subject", "New Client Inquiry -"+client.(map[string]interface{})["name"].(string))
+	m.SetHeader("Subject", "New Client Inquiry -"+client.Name)
 	m.SetBody("text/plain", emailBody.String())
 
 	// Send Email
