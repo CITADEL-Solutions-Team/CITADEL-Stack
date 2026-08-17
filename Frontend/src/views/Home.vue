@@ -14,28 +14,12 @@
     </Hero>
     
     <!-- Can literally take in anything and just turns it into a list with a header to the left -->
-    <ListWithHeader>
-        <template v-slot:Header>
-            Why CITADEL?
-        </template>
-        <template v-slot:List>
-            <InfoCard>
-                <template v-slot:Header>
-                    A Local Team That Treats You Like a Client, Not a Ticket
-                </template>
-                <template v-slot:Body>
-                    We're a local startup which means every client gets our full attention. You'll work directly with the people solving your problems, not a rotating help desk. When you call, someone who knows your setup picks up.
-                </template>
-            </InfoCard>
-            <InfoCard>
-                <template v-slot:Header>
-                    No Jargon. No Surprises.
-                </template>
-                <template v-slot:Body>
-                    We explain what we're doing and why in plain language. You'll always know exactly where you stand… no mystery invoices, no upsells you didn't ask for, no confusing reports you have to decode yourself.
-                </template>
-            </InfoCard>
-        </template>
+    <ListWithHeader
+    :header="'Why Citadel?'"
+    :tagLevel="2"
+    :list="lWHeadList"
+    >
+        
     </ListWithHeader>
 
     <!-- Only works well with even number of objects. Will adapt to really any screen size and look good -->
@@ -105,6 +89,7 @@
     import StatsBlock from '@/components/Sections/StatsBlock.vue';
     import StatCard from '@/components/Cards/StatCard.vue';
     import WhereToStart from '@/components/Sections/WhereToStart.vue';
+import { M } from 'vue-router/dist/index-BQLwgiyK.js';
 
     const ButtonOne: { label: string, to: string } = {
         label: "About Us",
@@ -120,4 +105,15 @@
         label: "Contact Us",
         to: "/contact-us"
     }
+
+    const lWHeadList = [
+        {
+            header: "A Local Team that treats you like a client, not a ticket",
+            body: "We're a local startup which means every client gets our full attention. You'll work directly with the people solving your problems, not a rotating help desk. When you call, someone who knows your setup picks up.",
+        },
+        {
+            header: "No Jargon, No Surprises.",
+            body: "We explain what we're doing and why in plain language. You'll always know exactly where you stand… no mystery invoices, no upsells you didn't ask for, no confusing reports you have to decode yourself."
+        },
+    ] 
 </script>
