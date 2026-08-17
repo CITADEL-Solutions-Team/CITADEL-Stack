@@ -1,8 +1,9 @@
 <template>
     <!-- Hero section. Takes in 2 Button inputs to allow for that extra layer of navigation -->
     <Hero
-    :ButtonOne="ButtonOne"
-    :ButtonTwo="ButtonTwo"
+    :tagLevel="1"
+    :buttonOne="ButtonOne"
+    :buttonTwo="ButtonTwo"
     >
         <template v-slot:Hook>
             Secure Today. Protect Tomorrow.
