@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type ComputedRef } from 'vue';
+    import { computed, type ComputedRef } from 'vue';
 
     interface HeroButton {
         label: string,
