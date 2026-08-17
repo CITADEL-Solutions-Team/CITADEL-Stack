@@ -22,53 +22,10 @@
         
     </ListWithHeader>
 
-    <!-- Only works well with even number of objects. Will adapt to really any screen size and look good -->
-    <StatsBlock>
-        <StatCard>
-            <template v-slot:Stat>
-                43%
-            </template>
-            <template v-slot:Blurb>
-                of cyber attacks target small businesses
-            </template>
-            <template v-slot:Source>
-                Verizon / Cybersecurity Magazine
-            </template>
-        </StatCard>
-        <StatCard>
-            <template v-slot:Stat>
-                $1.5M+
-            </template>
-            <template v-slot:Blurb>
-                average cost of a ransomware attack
-            </template>
-            <template v-slot:Source>
-                Sophos 2023 State of Ransomware Report
-            </template>
-        </StatCard>
-        <StatCard>
-            <template v-slot:Stat>
-                99.9%
-            </template>
-            <template v-slot:Blurb>
-                of automated attacks blocked by MFA
-            </template>
-            <template v-slot:Source>
-                Microsoft Security Report. 2023
-            </template>
-        </StatCard>
-        <StatCard>
-            <template v-slot:Stat>
-                61%
-            </template>
-            <template v-slot:Blurb>
-                of small businesses experienced a breach in the past year
-            </template>
-            <template v-slot:Source>
-                PreVeil 2025
-            </template>
-        </StatCard>
-    </StatsBlock>
+    <ExploreServiceBundles 
+    :tagLevel="2" 
+    :cards="exploreSvcList"
+    />
 
     <WhereToStart
     :Button="ButtonThree"
@@ -83,13 +40,11 @@
 </template>
 
 <script setup lang="ts">
-    import InfoCard from '@/components/Cards/InfoCard.vue';
     import Hero from '@/components/Sections/Hero.vue';
     import ListWithHeader from '@/components/Sections/ListWithHeader.vue';
-    import StatsBlock from '@/components/Sections/StatsBlock.vue';
-    import StatCard from '@/components/Cards/StatCard.vue';
     import WhereToStart from '@/components/Sections/WhereToStart.vue';
-    
+    import ExploreServiceBundles from '@/components/Sections/ExploreServiceBundles.vue';
+
     const ButtonOne: { label: string, to: string } = {
         label: "About Us",
         to: "/about-us"
@@ -114,5 +69,20 @@
             header: "No Jargon, No Surprises.",
             body: "We explain what we're doing and why in plain language. You'll always know exactly where you stand… no mystery invoices, no upsells you didn't ask for, no confusing reports you have to decode yourself."
         },
-    ] 
+    ]
+
+    const exploreSvcList = [
+        {
+            service: "Cybersecurity",
+            to: "/services/cyber-sec",
+        },
+        {
+            service: "Website Development",
+            to: "/services/web-de",
+        },
+        {
+            service: "PC Build & Repair",
+            to: "/services/pc-repairs",
+        },
+    ]
 </script>
