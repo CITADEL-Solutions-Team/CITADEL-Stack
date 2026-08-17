@@ -103,6 +103,17 @@ const router = createRouter({
         path: "/glossary",
         name: "Glossary",
         component: () => import('@/views/Glossary.vue')
+    },
+    {
+        path: "/error",
+        name: "Error",
+        children: [
+            {
+                path: "404",
+                name: "NotExist",
+                component: () => import('@/views/Errors/error404.vue')
+            }
+        ]
     }
   ]
 })

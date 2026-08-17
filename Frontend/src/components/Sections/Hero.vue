@@ -1,47 +1,61 @@
 <template>
-    <div 
-    class="flex flex-col items-center py-20"
-    >
-        <div id="Text"
-        class="px-20 py-4"
+    <section class="flex flex-col items-center py-20">
+        <component :is="tagType"
+        class="text-6xl text-center text-(--Accent) font-bold py-2"
         >
-            <h1 id="Hook"
-            class="text-5xl text-center text-(--Accent) font-bold
-            py-2"
-            >
-                <slot name="Hook">
-                    Hook will go here
-                </slot>
-            </h1>
-            <p id="Body"
-            class="text-center text-(--SupText) py-8"
-            >
-                <slot name="Body">
-                    Body will go here
-                </slot>
-            </p>
-        </div>
-       <div id="Buttons"
-        class="grid grid-flow-col gap-4"
-        >
+            <slot name="Hook">
+                Hook will go here
+            </slot>
+        </component>
+        <p class="text-center text-(--SupText) py-8">
+            <slot name="Body">
+                Body will go here
+            </slot>
+        </p>
+
+        <div class="grid grid-flow-col gap-4">
             <RouterLink 
             class="text-(--Background) bg-(--Accent) rounded p-1"
-            :to="ButtonOne.to"
+            :to="props.buttonOne.to"
             > 
-                {{ ButtonOne.label }}
+                {{ props.buttonOne.label }}
             </RouterLink>
+            
             <RouterLink 
             class="text-(--Accent) border-2 border-(--Accent) rounded p-1"
-            :to="ButtonTwo.to"> 
-                {{ ButtonTwo.label }}
+            :to="props.buttonTwo.to"
+            > 
+                {{ props.buttonTwo.label }}
             </RouterLink>
         </div> 
-    </div>
+    </section>
 </template>
 
 <script setup lang="ts">
-    const props = defineProps<{
-        ButtonOne: { label: string, to: string }
-        ButtonTwo: { label: string, to: string }
-    }>()
+    import { computed, type ComputedRef } from 'vue';
+
+    interface HeroButton {
+        label: string,
+        to: string
+    }
+
+    interface Props {
+        tagLevel?: 1|2|3|4|5|6,
+        buttonOne?: HeroButton
+        buttonTwo?: HeroButton
+    }
+
+    const props = withDefaults(defineProps<Props>(), {
+        tagLevel: 2,
+        buttonOne: () => ({
+            label: "Button 1: Needs Label!",
+            to: "/404",
+        }),
+        buttonTwo: () => ({
+            label: "Button 2: Needs Label!",
+            to: "/404",
+        }),
+    })
+
+    const tagType: ComputedRef<string> = computed(() => "h" + props.tagLevel)
 </script>

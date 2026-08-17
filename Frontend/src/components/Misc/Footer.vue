@@ -1,9 +1,9 @@
 <template>
-  <nav class="grid grid-cols-2 border-t-4 border-(--Accent) pt-6"
+  <nav class="grid grid-cols-1 lg:grid-cols-2 border-t-4 border-(--Accent) pt-6 pb-8"
   aria-label="Footer"
   >
     <!-- Left Section that holds contact info and socials -->
-    <div class="grid grid-rows-2 gap-12">
+    <div class="grid grid-rows-1 lg:grid-rows-2 gap-12">
       <!-- Name, Email, phone -->
       <div>
         <!-- Business Name -->
