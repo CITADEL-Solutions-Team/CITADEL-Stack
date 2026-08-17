@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-col items-center py-20">
         <component :is="tagType"
-        class="text-5xl text-center text-(--Accent) font-bold py-2"
+        class="text-6xl text-center text-(--Accent) font-bold py-2"
         >
             <slot name="Hook">
                 Hook will go here

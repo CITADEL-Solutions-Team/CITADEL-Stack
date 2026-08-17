@@ -28,13 +28,16 @@
     />
 
     <WhereToStart
-    :Button="ButtonThree"
+    :button="ButtonThree"
     >
         <template v-slot:Header>
-            Not sure where to start? That's exactly what the first call is for.
+            Not sure where to start? <br/> That's exactly what the first call is for!
         </template>
         <template v-slot:Body>
             We offer a free, no-pressure consultation for every new client. In 30 minutes we'll identify your biggest gaps and walk you through what it would take to close them. No commitment required.
+        </template>
+        <template v-slot:SupTxt>
+            Schedule your <bdi class="text-(--Accent)">free</bdi> consultation today!
         </template>
     </WhereToStart>
 </template>
@@ -78,10 +81,10 @@
         },
         {
             service: "Website Development",
-            to: "/services/web-de",
+            to: "/services/web-dev",
         },
         {
-            service: "PC Build & Repair",
+            service: "Computer Services",
             to: "/services/pc-repairs",
         },
     ]
