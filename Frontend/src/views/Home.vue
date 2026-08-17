@@ -89,8 +89,7 @@
     import StatsBlock from '@/components/Sections/StatsBlock.vue';
     import StatCard from '@/components/Cards/StatCard.vue';
     import WhereToStart from '@/components/Sections/WhereToStart.vue';
-import { M } from 'vue-router/dist/index-BQLwgiyK.js';
-
+    
     const ButtonOne: { label: string, to: string } = {
         label: "About Us",
         to: "/about-us"
