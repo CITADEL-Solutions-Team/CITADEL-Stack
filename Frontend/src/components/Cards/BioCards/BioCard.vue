@@ -23,9 +23,10 @@
     -->
     <div
         id="CardOuter"
+        ref="outerRef"
         class="card-outer aspect-2/3 w-[clamp(120px,22vw,320px)]"
         role="button"
-        tabindex="0"
+        :tabindex="Active ? 0 : -1"
         :aria-label="`${Info.Name}, ${Info.Role}. Press to flip card.`"
         :aria-pressed="IsFlipped"
         @click="emit('flip')"
@@ -131,7 +132,10 @@
                         <p class="text-[7cqw] pt-1">{{ Info.Name }}</p>
                         <p class="text-[6cqw] pb-2">{{ Info.Role }}</p>
                         <RouterLink
-                        :to="Info.To" class="text-[6.25cqw] text-blue-400 italic py-1">About Me</RouterLink>
+                            :to="Info.To"
+                            :tabindex="IsFlipped ? 0 : -1"
+                            class="text-[6.25cqw] text-blue-400 italic py-1"
+                        >About Me</RouterLink>
                     </div>
                 </div>    <!-- always rendered, pre-rotated 180deg, backface-visibility hidden -->
             </div>
@@ -147,8 +151,14 @@
 
     const props = defineProps<{
         Info: Bio,
-        IsFlipped: boolean
+        IsFlipped: boolean,
+        Active: boolean
     }>()
+
+    const outerRef = ref<HTMLElement | null>(null)
+    defineExpose({
+        focus: () => outerRef.value?.focus()
+    })
 
     const emit = defineEmits<{
         flip: []
