@@ -1,19 +1,22 @@
 <template>
     <div 
-    class="border rounded-2xl text-center min-w-40 px-5 pb-4 pt-2"
+    class="flex flex-col border rounded-2xl text-center min-w-80 h-80 px-6 pb-6 pt-2"
     :style="{ background: 'radial-gradient(circle,' + props.color + ', #000000 200%)'}"
     >
         <component :is="tagType"
         class="text-4xl font-extrabold"
         >Tier {{ props.tier }}</component>
-        <p> {{ props.tierInfo }} </p>
-        <p class="text-xl font-bold"> {{ props.price }} </p>
+        <p class="flex-none"> {{ props.tierInfo }} </p>
+        <p class="text-2xl font-bold flex-1 text-center content-center"> {{ props.price }} </p>
 
-        <ul>
-            <li v-for="feature in props.features">
-                <p> ✓{{ feature }} </p>
-            </li>
-        </ul>        
+        <div class="flex justify-center-safe items-end">
+            <ul class="flex flex-col gap-4">
+                <li v-for="feature in props.features" class="grid grid-cols-3">
+                    <p> ✓             </p>
+                    <p class="col-span-2"> {{ feature }} </p>
+                </li>
+            </ul>
+        </div>        
     </div>
 </template>
 

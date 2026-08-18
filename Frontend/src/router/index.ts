@@ -37,6 +37,11 @@ const router = createRouter({
                 component: () => import('@/views/Services/Services.vue'),
             },
             {
+                path: "/services/service-directory",
+                name: "ServiceDirectory",
+                component: () => import('@/views/Services/ServiceDirectory.vue')
+            },
+            {
                 path: "/services/bundles",
                 name: "Bundles",
                 children: [

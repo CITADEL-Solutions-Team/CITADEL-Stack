@@ -1,13 +1,15 @@
 <template>
     <section class="py-4">
-        <div class="flex gap-4">
+        <div class="flex gap-4 py-2">
             <component :is="tagType"
             class="font-semibold text-[32px] underline"
             > {{ props.sectionName }} </component>
-            <button>View All</button>
+            <RouterLink :to="'/services/service-directory'">
+                <button class="px-4 bg-(--MenuCard) rounded-2xl">View All</button>
+            </RouterLink>
         </div>
-        <div class="md:px-18">
-            <ul class="flex justify-center-safe gap-4 overflow-x-scroll md:overflow-x-hide">
+        <div class="">
+            <ul class="flex justify-center-safe gap-4 overflow-x-scroll lg:overflow-x-hide">
                 <li v-for="card in props.serviceTiers">
                     <ServiceBundleCard
                     :tagLevel="props.tagLevel"
