@@ -33,8 +33,24 @@ const router = createRouter({
 		children: [
             {
                 path: "",
-                name: "OurServices",    
+                name: "ServicesOverview",    
                 component: () => import('@/views/Services/Services.vue'),
+            },
+            {
+                path: "/services/bundles",
+                name: "Bundles",
+                children: [
+                    {
+                        path: "/services/bundles/business",
+                        name: "BusinessBundles",
+                        component: () => import('@/views/Services/Bundles/Business.vue'),
+                    },
+                    {
+                        path: "/services/bundles/personal",
+                        name: "PersonalBundles",
+                        component: () => import('@/views/Services/Bundles/Personal.vue'),
+                    }
+                ]
             },
 			{
 				component: () => import('@/views/Services/CyberSec.vue'),
