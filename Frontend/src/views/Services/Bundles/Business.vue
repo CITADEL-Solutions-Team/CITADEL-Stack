@@ -1,12 +1,23 @@
 <template>
+    <section class="text-center p-4">
+        <h1 class="text-4xl font-bold">Business Service Bundles</h1>
+        <div class="bg-(--AltCard) rounded-2xl p-6">
+            <h2 class="text-3xl font-bold">Find the right fit for your business.</h2>
+            <p class="text-lg font-semibold">Pick the bundle that best fits your needs or put together a unique bundle customized just for your business!</p>
+            <p class="text-(--SupText)">Bundles shown are starting points, not limits. All bundles include a free onboarding call and monthly check-in.</p>
+        </div>
+    </section>
+
     <ServiceBundle
     :tagLevel="2"
     :sectionName="'Cybersecurity'"
     :serviceTiers="cybersecCards"></ServiceBundle>
+
     <ServiceBundle
     :tagLevel="2"
     :sectionName="'Website Development'"
     :serviceTiers="webDevCards"></ServiceBundle>
+
     <ServiceBundle
     :tagLevel="2"
     :sectionName="'Computer Services'"
