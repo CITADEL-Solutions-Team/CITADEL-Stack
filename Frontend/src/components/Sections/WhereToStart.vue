@@ -17,7 +17,6 @@
 
             <component :is="listTagType" class="font-bold text-2xl lg:text-5xl"> 
                 <slot name="SupTxt">
-                    Call to Action!
                 </slot>
             </component>
         </div>
