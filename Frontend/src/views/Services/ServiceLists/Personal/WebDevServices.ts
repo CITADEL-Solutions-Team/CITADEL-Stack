@@ -7,7 +7,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Hosting & Infrastructure",
-    price: null,
+    price: "$75 - $150 & $10 - $20/mo",
     description: "Slow, unprotected hosting costs you visitors and rankings before they even see what you offer.",
     features: [
       "Global CDN delivery for fast load times worldwide",
@@ -23,7 +23,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Hosting & Infrastructure",
-    price: null,
+    price: "$50 - $100 & $8 - $15/mo",
     description: "A lapsed domain can take your entire business offline overnight, and it happens more often than you'd think.",
     features: [
       "Domain registration or transfer-in assistance",
@@ -39,7 +39,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Hosting & Infrastructure",
-    price: null,
+    price: "$250 - $600",
     description: "A move done wrong can tank your search rankings and break links overnight; a move done right, no one even notices.",
     features: [
       "Full transfer of existing site to Cloudflare",
@@ -55,7 +55,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Personal Site Design & Setup",
-    price: null,
+    price: "$300 - $800",
     description: "Hiring managers and clients decide in seconds whether you look credible; a scattered PDF resume doesn't compete with a clean, searchable site.",
     features: [
       "Selection from portfolio-style templates (work samples, case studies, resume layout)",
@@ -71,7 +71,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Personal Site Design & Setup",
-    price: null,
+    price: "$250 - $600",
     description: "A blog only builds an audience if people can actually find and follow your posts. The setup determines whether that happens automatically or never.",
     features: [
       "Blog platform setup with easy publishing workflow",
@@ -87,7 +87,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Personal Site Design & Setup",
-    price: null,
+    price: "$99 - $250",
     description: "A generic link-in-bio tool puts someone else's branding and ads between you and your audience. Owning the page keeps the traffic (and the trust) yours.",
     features: [
       "Single-page hub linking out to social profiles, shop, or content",
@@ -103,7 +103,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Personal Site Design & Setup",
-    price: null,
+    price: "$400 - $900",
     description: "A professional site gets you online fast without sacrificing the polish that makes visitors trust you.",
     features: [
       "Selection from our pre-built, mobile-responsive template library",
@@ -119,7 +119,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Personal Site Design & Setup",
-    price: null,
+    price: "$1,200 - $3,000",
     description: "Your website is often the first impression a customer gets, and a generic template can quietly cost you credibility.",
     features: [
       "Original design built to brand specs",
@@ -135,7 +135,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Selling & Booking",
-    price: null,
+    price: "$300 - $700",
     description: "Digital products sell on convenience. If delivery isn't instant and automatic, buyers get nervous and abandon the purchase.",
     features: [
       "Secure file delivery for ebooks, presets, templates, courses, etc.",
@@ -151,7 +151,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Selling & Booking",
-    price: null,
+    price: "$400 - $900 & optional $15 - $30/mo (catalog/order support)",
     description: "You don't need enterprise e-commerce to start selling. You need something that works on day one without a steep learning curve.",
     features: [
       "Product listings for a small catalog (handmade goods, merch, low-SKU inventory)",
@@ -167,7 +167,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Selling & Booking",
-    price: null,
+    price: "$200 - $450",
     description: "Every back-and-forth email to find a time is a chance for a client to lose interest or book someone else instead.",
     features: [
       "Calendar sync so clients book directly into your real availability",
@@ -183,7 +183,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Selling & Booking",
-    price: null,
+    price: "$100 - $250",
     description: "Making it easy for people to pay or support you removes the single biggest point of friction between interest and income.",
     features: [
       "One-click payment button setup (PayPal, Stripe, Venmo, etc.)",
@@ -199,7 +199,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Search Engine Optimization (SEO) & Marketing",
-    price: null,
+    price: "$200 - $450",
     description: "A well-optimized website helps more potential customers find your business through search engines.",
     features: [
       "Meta titles/descriptions for all pages",
@@ -215,7 +215,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Search Engine Optimization (SEO) & Marketing",
-    price: null,
+    price: "$150 - $400 (homepage & core pages); $50 - $125/blog post; $20 - $50/product description",
     description: "Even a great-looking site won't convert if the words on it don't tell visitors why they should care.",
     features: [
       "Homepage and core page copy",
@@ -231,7 +231,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Maintenance & Support",
-    price: null,
+    price: "$25 - $50/mo",
     description: "A neglected website becomes a vulnerable one, and small issues left alone turn into downtime.",
     features: [
       "Regular backups",
@@ -247,7 +247,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Maintenance & Support",
-    price: null,
+    price: "$40 - $75/mo",
     description: "When something breaks on your site, every hour of downtime is lost visitors and lost revenue.",
     features: [
       "Faster response time SLA",
@@ -263,7 +263,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Maintenance & Support",
-    price: null,
+    price: "$75 - $150 & optional $25 - $50/mo",
     description: "You can't improve what you're not measuring, and most site owners have no idea where visitors actually drop off.",
     features: [
       "Traffic and conversion dashboard setup",
@@ -279,7 +279,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Add-On Services",
-    price: null,
+    price: "$150 - $400",
     description: "A slow site doesn't just frustrate visitors, it gets penalized in search rankings too.",
     features: [
       "Image compression and lazy loading",
@@ -295,7 +295,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Add-On Services",
-    price: null,
+    price: "$250 - $600",
     description: "An inaccessible website can mean lost customers and legal exposure, and most issues are simple to fix once identified.",
     features: [
       "Automated + manual accessibility scan",
@@ -311,7 +311,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Add-On Services",
-    price: null,
+    price: "$75 - $200",
     description: "A feed embed keeps your site looking active even when you're not actively updating it yourself, and it nudges visitors toward following you elsewhere.",
     features: [
       "Live feed embed from Instagram, TikTok, or other platforms",
@@ -327,7 +327,7 @@ export const personalWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Personal",
     group: "Add-On Services",
-    price: null,
+    price: "$200 - $600 (integration-dependent)",
     description: "Disconnected tools mean manual double-entry; integrations let your systems actually talk to each other.",
     features: [
       "CRM or email marketing platform hookup",
