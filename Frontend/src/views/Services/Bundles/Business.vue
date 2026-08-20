@@ -58,8 +58,8 @@
         tier: 1,
         name: "Starter Business Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$1,650 - $3,950",
+        pricingNote: "$125 - $225/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -76,8 +76,8 @@
         tier: 2,
         name: "Small Business Growth Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$2,650 - $6,850",
+        pricingNote: "$250 - $450/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -96,8 +96,8 @@
         tier: 3,
         name: "Custom Enterprise Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$6,950 - $17,250",
+        pricingNote: "$350 - $675/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -118,8 +118,8 @@
         tier: 4,
         name: "E-Commerce Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$5,050 - $11,100",
+        pricingNote: "$250 - $450/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -138,8 +138,8 @@
         tier: 5,
         name: "Local Service Business Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$4,200 - $12,450",
+        pricingNote: "$125 - $225/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
