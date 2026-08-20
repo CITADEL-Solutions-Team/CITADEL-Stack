@@ -83,23 +83,6 @@
     ]
     const Sections: {Name: string, Links: {Label: string, To: string}[],}[] = [
         {
-            Name: "Learn More",
-            Links: [
-                {
-                    Label: "About Us",
-                    To: "/about-us",
-                },
-                {
-                    Label: "Customer Stories",
-                    To: "/customer-stories",
-                },
-                {
-                    Label: "Case Studies",
-                    To: "/case-studies",
-                }
-            ]
-        },
-        {
             Name: "Legal",
             Links: [
                 {
@@ -131,10 +114,6 @@
                     Label: "FAQ",
                     To: "/faq",
                 },
-                {
-                    Label: "Glossary",
-                    To: "/glossary",
-                }
             ]
         }
     ]
