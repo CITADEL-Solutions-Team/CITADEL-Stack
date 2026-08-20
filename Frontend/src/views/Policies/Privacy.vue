@@ -1,6 +1,6 @@
 <template>
     <h1 class="text-4xl underline py-2">Privacy Policy</h1>
-    <p class="py-2">Last updated: 7/30/2026</p>
+    <p class="pb-4">Last updated: 7/30/2026</p>
     <p>Citadel Solutions LLC ("we," "us," or "our") provides website development, cybersecurity services, and PC repair services. This Privacy Policy explains how we collect, use, and protect information when you visit citadelsolutions.tech (the "Site") or use our services.</p>
     <ul>
         <li v-for="item in items" class="py-2">
