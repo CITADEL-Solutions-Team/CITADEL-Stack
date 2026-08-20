@@ -3,10 +3,11 @@
     <div class="flex-1 flex flex-col">
         <button 
             class="bg-linear-to-b from-[#1062B2] to-[#072A4C] border border-(--Accent)
-            text-start px-2 py-2 rounded-lg"
+            text-start px-2 py-2 rounded-lg flex"
             @click="open = !open"
         >
-            <h3>{{ svc?.name }}</h3>
+            <h3 class="flex-1">{{ svc?.name }}</h3>
+            <h3>{{ svc?.price }}</h3>
         </button>
 
         <div v-if="open" class="mx-2 p-2">
