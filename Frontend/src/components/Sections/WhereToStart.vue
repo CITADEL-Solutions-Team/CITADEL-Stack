@@ -1,5 +1,5 @@
 <template>
-    <div class="py-20 md:py-30 flex flex-col gap-12">
+    <div class="py-10 flex flex-col gap-12">
         <div class="flex flex-col gap-4 text-center">
             <component :is="tagType"
             class="font-bold text-2xl lg:text-4xl text-(--Accent)"
@@ -9,7 +9,7 @@
                 </slot>
             </component>
             
-            <p>
+            <p class="text-lg">
                 <slot name="Body">
                     Call out something here
                 </slot>

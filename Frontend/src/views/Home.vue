@@ -31,7 +31,7 @@
     :button="ButtonThree"
     >
         <template v-slot:Header>
-            Not sure where to start? <br/> That's exactly what the first call is for!
+            Not sure where to start? That's what the first call is for!
         </template>
         <template v-slot:Body>
             We offer a free, no-pressure consultation for every new client. In 30 minutes we'll identify your biggest gaps and walk you through what it would take to close them. No commitment required.
