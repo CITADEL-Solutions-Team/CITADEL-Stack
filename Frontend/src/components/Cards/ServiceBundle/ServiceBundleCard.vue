@@ -16,8 +16,8 @@
                 <div v-for="(groupFeatures, groupName) in props.features" :key="groupName">
                     <p class="font-semibold uppercase text-sm">{{ groupName }}</p>
                     <ul class="flex flex-col gap-1">
-                        <li v-for="feature in groupFeatures" :key="feature" class="grid grid-cols-3">
-                            <p> ✓ </p>
+                        <li v-for="feature in groupFeatures" :key="feature" class="flex">
+                            <p class="pr-4"> ✓ </p>
                             <p class="col-span-2"> {{ feature }} </p>
                         </li>
                     </ul>
