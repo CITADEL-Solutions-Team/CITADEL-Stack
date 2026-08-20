@@ -64,8 +64,8 @@
         tier: 1,
         name: "Personal Starter Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$525 - $1,275",
+        pricingNote: "$40 - $75/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -82,8 +82,8 @@
         tier: 2,
         name: "Freelancer & Solopreneur Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$900 - $2,125",
+        pricingNote: "$60 - $120/mo",
         includesPreviousTier: true,
         features: {
         "Included Services": [
@@ -98,8 +98,8 @@
         tier: 3,
         name: "Creator Storefront Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$950 - $2,175",
+        pricingNote: "$40 - $75/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -118,8 +118,8 @@
         tier: 4,
         name: "Content Creator / Blogger Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$550 - $1,275",
+        pricingNote: "$40 - $75/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -137,8 +137,8 @@
         tier: 5,
         name: "Custom Personal Brand Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X + $X/mo",
+        price: "$1,325 - $3,225",
+        pricingNote: "$75 - $140/mo",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -158,8 +158,8 @@
         tier: 1,
         name: "Refresh Package",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X (one-time)",
+        price: "$150 - $225",
+        pricingNote: "",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -174,8 +174,8 @@
         tier: 2,
         name: "Deep Clean & Diagnose",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X (one-time)",
+        price: "$175 - $300",
+        pricingNote: "",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -190,8 +190,8 @@
         tier: 3,
         name: "New PC Day",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X (one-time)",
+        price: "$225 - $400",
+        pricingNote: "",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -206,8 +206,8 @@
         tier: 4,
         name: "Multi-PC Starter",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X (one-time)",
+        price: "$425 - $775",
+        pricingNote: "",
         includesPreviousTier: false,
         features: {
         "Included Services": [
@@ -223,8 +223,8 @@
         tier: 5,
         name: "Gamer / Builder Bundle",
         tierInfo: "",
-        price: "tbd",
-        pricingNote: "$X (one-time)",
+        price: "$175 - $375",
+        pricingNote: "",
         includesPreviousTier: false,
         features: {
         "Included Services": [
