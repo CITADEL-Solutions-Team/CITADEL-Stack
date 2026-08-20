@@ -1,22 +1,34 @@
 package api
 
-import "github.com/gin-gonic/gin"
+import (
+	"os"
+	"time"
 
-// Creates a new api and runs it, returning any errors it encounters
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+)
+
 func InitAPI() error {
 	router := gin.Default()
 
-	// Add routes to the api
+	allowedOrigins := []string{"https://citadelsolutions.tech", "https://www.citadelsolutions.tech"}
+
+	if os.Getenv("APP_ENV") == "development" {
+		allowedOrigins = append(allowedOrigins, "http://localhost:5173")
+	}
+
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     allowedOrigins,
+		AllowMethods:     []string{"GET", "POST", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "X-Custom-Header"},
+		AllowCredentials: false,
+		MaxAge:           12 * time.Hour,
+	}))
+
 	err := addRoutes(router)
 	if err != nil {
 		return err
 	}
 
-	// Will return errors if it has issues with connection.
-	err = router.Run()
-	if err != nil {
-		return err
-	}
-	
-	return nil
+	return router.Run()
 }

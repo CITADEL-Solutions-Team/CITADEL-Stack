@@ -33,6 +33,9 @@
     // Will be used for handling possible bad apples
     const questionable: Ref<boolean, boolean> = ref(false)
 
+    // Did the server error out (5xx)?
+    const serverError: Ref<boolean, boolean> = ref(false)
+
     // Hold list of services with backend values and app-layer labels.
     const serviceList:Service[] = [
         {
@@ -58,7 +61,7 @@
 
     async function SendForm(contactInfo: ContactInfo) {
         console.log(JSON.stringify(contactInfo, null, 2))
-        const response = await instance.post("/api/test/send-email", info.value)
+        const response = await instance.post("/api/send-email", info.value)
         
         switch (response.status) {
             case axios.HttpStatusCode.Ok: // 200
@@ -74,8 +77,12 @@
                 break               
 
             default:
-                rejected.value = true
-                questionable.value = true
+                if (response.status >= 500 && response.status < 600) {
+                    serverError.value = true
+                } else {
+                    rejected.value = true
+                    questionable.value = true
+                }
                 break // We ain't handling all that. :skull: :sob: LMFAO!!!!!!!!
         }
     }
