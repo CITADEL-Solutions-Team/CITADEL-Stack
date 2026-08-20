@@ -10,37 +10,43 @@
                 type="search" 
                 name="searchServices"
                 id="Search all services"
+                v-model="searchQuery"
                 placeholder="Search all services"
-                class="bg-white rounded-lg border-(--Accent) text-black text-xl py-1 px-2 flex-1">
-                <button class="px-4 py-2 bg-linear-to-b from-[#2D5B89] to-black border border-(--Accent) rounded-lg font-bold text-2xl"
-                >Search</button>
+                class="bg-white rounded-lg border-(--Accent) text-black text-xl py-1 px-2 flex-1"
+                >
+                    <button 
+                    class="px-4 py-2 bg-linear-to-b from-[#2D5B89] to-black border border-(--Accent) rounded-lg font-bold text-2xl"
+                    >Search</button>
             </div>
 
             <!-- The filters -->
-            <div>
-                <div>
-                    <label>
-                        <input type="checkbox" value="WebDev" v-model="categoryFilters">
-                        Web Dev
-                    </label>
-                    <label>
-                        <input type="checkbox" value="CyberSec" v-model="categoryFilters">
-                        Cybersecurity
-                    </label>
-                    <label>
-                        <input type="checkbox" value="PCServices" v-model="categoryFilters">
-                        Computer Services
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <input type="checkbox" value="Business" v-model="audienceFilters">
-                        Business
-                    </label>
-                    <label>
-                        <input type="checkbox" value="Personal" v-model="audienceFilters">
-                        Personal
-                    </label>
+            <div class="flex">
+                <p>Filter by:</p>
+                <div class="pl-4">
+                    <div class="">
+                        <label>
+                            <input type="checkbox" value="WebDev" v-model="categoryFilters">
+                            Web Dev
+                        </label>
+                        <label>
+                            <input type="checkbox" value="CyberSec" v-model="categoryFilters">
+                            Cybersecurity
+                        </label>
+                        <label>
+                            <input type="checkbox" value="PCServices" v-model="categoryFilters">
+                            Computer Services
+                        </label>
+                    </div>
+                    <div class="">
+                        <label>
+                            <input type="checkbox" value="Business" v-model="audienceFilters">
+                            Business
+                        </label>
+                        <label>
+                            <input type="checkbox" value="Personal" v-model="audienceFilters">
+                            Personal
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,33 +89,29 @@
 </template>
 
 <script setup lang="ts">
-import type { Service } from '@/views/Services/Service';
-import { computed, ref, type ComputedRef, type Ref } from 'vue';
-import { filterServices } from '@/views/Services/SearchServices';
-import DirServiceCard from '@/components/Cards/DirServiceCard.vue';
+    import type { Service } from '@/views/Services/Service';
+    import { computed, ref, type ComputedRef, type Ref } from 'vue';
+    import { filterServices } from '@/views/Services/SearchServices';
+    import DirServiceCard from '@/components/Cards/DirServiceCard.vue';
 
-const searchQuery: Ref<string> = ref("");
-const categoryFilters: Ref<Service["category"][]> = ref([]);
-const audienceFilters: Ref<Service["audience"][]> = ref([]);
+    const searchQuery: Ref<string> = ref("");
+    const categoryFilters: Ref<Service["category"][]> = ref([]);
+    const audienceFilters: Ref<Service["audience"][]> = ref([]);
 
-const filteredServices: ComputedRef<Service[]> = computed(() =>
-  filterServices(searchQuery.value, categoryFilters.value, audienceFilters.value)
-);
+    const filteredServices: ComputedRef<Service[]> = computed(() =>
+    filterServices(searchQuery.value, categoryFilters.value, audienceFilters.value)
+    );
 
-const uniqueGroups: ComputedRef<string[]> = computed(() => [
-  ...new Set(filteredServices.value.map(s => s.group))
-]);
+    const groupedServices: ComputedRef<Map<string, Service[]>> = computed(() => {
+    const map = new Map<string, Service[]>();
 
-const groupedServices: ComputedRef<Map<string, Service[]>> = computed(() => {
-  const map = new Map<string, Service[]>();
-
-  for (const service of filteredServices.value) {
-    if (!map.has(service.group)) {
-      map.set(service.group, []);
+    for (const service of filteredServices.value) {
+        if (!map.has(service.group)) {
+        map.set(service.group, []);
+        }
+        map.get(service.group)!.push(service);
     }
-    map.get(service.group)!.push(service);
-  }
 
-  return map;
-});
+    return map;
+    });
 </script>
