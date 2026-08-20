@@ -7,7 +7,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Setup & Configuration",
-    price: null,
+    price: "$99 - $149",
     description: "Getting a new machine set up right the first time saves you from digging through settings menus for a week.",
     features: [
       "Unboxing, account setup, and OS updates",
@@ -23,7 +23,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Setup & Configuration",
-    price: null,
+    price: "$89 - $149",
     description: "A clean install clears out the clutter and instability that builds up over years of everyday use.",
     features: [
       "Clean install or repair install",
@@ -39,7 +39,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Setup & Configuration",
-    price: null,
+    price: "$99 - $179",
     description: "A poorly configured network means slow speeds and dead zones that are usually a quick fix once someone knows where to look.",
     features: [
       "Router/modem configuration and Wi-Fi optimization",
@@ -55,7 +55,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Setup & Configuration",
-    price: null,
+    price: "$79 - $149 (up to 5 devices) + $15 - $25/additional device",
     description: "Getting every device properly paired and updated the first time means fewer app crashes and connection drops down the road.",
     features: [
       "Device pairing and Wi-Fi network integration",
@@ -73,7 +73,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Cleaning & Maintenance",
-    price: null,
+    price: "$59 - $99",
     description: "Dust buildup is one of the leading causes of overheating, and overheating is one of the leading causes of hardware failure.",
     features: [
       "Full interior cleaning",
@@ -90,7 +90,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Cleaning & Maintenance",
-    price: null,
+    price: "$79 - $129",
     description: "Years of installed programs and startup clutter are usually why a computer that used to feel fast now feels sluggish.",
     features: [
       "Remove bloatware, unused programs, and startup clutter",
@@ -107,7 +107,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Cleaning & Maintenance",
-    price: null,
+    price: "$15 - $25/mo (or $180 - $240/yr)",
     description: "Regular upkeep catches small issues before they turn into an expensive repair or a lost weekend.",
     features: [
       "Quarterly physical cleaning + software tune-up bundled",
@@ -123,7 +123,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "BIOS & Firmware",
-    price: null,
+    price: "$59 - $99",
     description: "Outdated firmware can cause boot failures and security gaps that no amount of software fixing will solve.",
     features: [
       "Safe BIOS/UEFI firmware updates",
@@ -139,7 +139,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "BIOS & Firmware",
-    price: null,
+    price: "$89 - $149",
     description: "Pushing a system past stock settings without proper testing risks instability or damage — done right, it's free performance.",
     features: [
       "CPU/GPU/RAM overclock within safe thermal limits",
@@ -155,7 +155,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Diagnostics & Troubleshooting",
-    price: null,
+    price: "$49 - $79 (often credited toward repair)",
     description: "Guessing at a hardware problem wastes money on parts that were never the issue; proper diagnosis finds it the first time.",
     features: [
       "Crash/freeze/blue screen diagnosis",
@@ -172,7 +172,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Diagnostics & Troubleshooting",
-    price: null,
+    price: "$99 - $179",
     description: "An infected PC can quietly steal passwords and files long before you notice anything's wrong.",
     features: [
       "Full system scan and infection removal",
@@ -189,7 +189,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Diagnostics & Troubleshooting",
-    price: null,
+    price: "$89 - $250 (pay only if recoverable; logical/software recovery only)",
     description: "A failed drive doesn't have to mean lost photos, documents, or years of work, but time matters once it happens.",
     features: [
       "Recovery from failed, corrupted, or accidentally formatted drives",
@@ -205,7 +205,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Builds & Upgrades",
-    price: null,
+    price: "$99 - $249 (parts billed separately)",
     description: "A build assembled by someone who's done it hundreds of times means fewer compatibility surprises and better airflow from day one.",
     features: [
       "Full assembly from customer- or shop-sourced parts",
@@ -222,7 +222,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Builds & Upgrades",
-    price: null,
+    price: "$39 - $79",
     description: "The wrong part choice can mean a system that bottlenecks itself or doesn't fit the case you already bought.",
     features: [
       "Budget-based parts list tailored to use case",
@@ -238,7 +238,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Builds & Upgrades",
-    price: null,
+    price: "$49 - $99 (+ parts)",
     description: "A single well-chosen upgrade can add years of useful life to a computer that still has plenty left in it.",
     features: [
       "RAM, SSD/HDD, GPU, or PSU upgrades",
@@ -254,7 +254,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Extras & Ongoing Care",
-    price: null,
+    price: "$69 - $129",
     description: "A backup you never tested isn't really a backup, it's a hope.",
     features: [
       "Local (external drive) and/or cloud backup configuration",
@@ -270,7 +270,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Extras & Ongoing Care",
-    price: null,
+    price: "$19 - $35/mo",
     description: "Most software issues can be fixed in minutes remotely, without waiting for an in-person appointment.",
     features: [
       "Unlimited remote troubleshooting for software issues",
@@ -285,7 +285,7 @@ export const personalPCServices: Service[] = [
     category: "PCServices",
     audience: "Personal",
     group: "Extras & Ongoing Care",
-    price: null,
+    price: "$29 - $49",
     description: "A quick health check catches small problems while they're still cheap to fix.",
     features: [
       "Full hardware and software health assessment",
