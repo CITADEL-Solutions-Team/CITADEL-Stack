@@ -7,7 +7,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Hosting & Infrastructure",
-    price: null,
+    price: "$150 - $300 & $25 - $50/mo (management & monitoring)",
     description: "Slow, unprotected hosting costs you visitors and rankings before they even see what you offer.",
     features: [
       "Global CDN delivery for fast load times worldwide",
@@ -23,7 +23,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Hosting & Infrastructure",
-    price: null,
+    price: "$75 - $150 & $10 - $20/mo (DNS/renewal management)",
     description: "A lapsed domain can take your entire business offline overnight, and it happens more often than you'd think.",
     features: [
       "Domain registration or transfer-in assistance",
@@ -39,7 +39,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Hosting & Infrastructure",
-    price: null,
+    price: "$500 - $1,500",
     description: "A move done wrong can tank your search rankings and break links overnight; a move done right, no one even notices.",
     features: [
       "Full transfer of existing site to Cloudflare",
@@ -55,7 +55,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "E-Commerce",
-    price: null,
+    price: "$800 - $2,500",
     description: "Every extra click or confusing checkout step is a customer walking away before they buy.",
     features: [
       "Product catalog build-out (per-item pricing)",
@@ -71,7 +71,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "E-Commerce",
-    price: null,
+    price: "$1,000 - $3,500",
     description: "Generic checkout flows leave money on the table — the right upsell or shipping logic pays for itself.",
     features: [
       "Custom checkout flow or upsell logic",
@@ -87,7 +87,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Website Design & Development",
-    price: null,
+    price: "$1,200 - $3,000",
     description: "A professional site gets you online fast without sacrificing the polish that makes visitors trust you.",
     features: [
       "Selection from our pre-built, mobile-responsive template library",
@@ -103,7 +103,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Website Design & Development",
-    price: null,
+    price: "$4,000 - $8,000",
     description: "Your website is often the first impression a customer gets, and a generic template can quietly cost you credibility.",
     features: [
       "Original design built to brand specs",
@@ -119,7 +119,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Website Design & Development",
-    price: null,
+    price: "$2,500 - $8,000+ (scope-dependent)",
     description: "Manual processes don't scale, and the right system saves hours every week once it's built.",
     features: [
       "Custom forms, booking systems, or user portals",
@@ -135,7 +135,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Search Engine Optimization (SEO) & Marketing",
-    price: null,
+    price: "$500 - $1,200",
     description: "A well-optimized website helps more potential customers find your business through search engines.",
     features: [
       "Meta titles/descriptions for all pages",
@@ -151,7 +151,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Search Engine Optimization (SEO) & Marketing",
-    price: null,
+    price: "$700 - $1,500/mo",
     description: "Rankings aren't a set-it-and-forget-it deal — competitors are actively working to outrank you every month.",
     features: [
       "Monthly keyword tracking report",
@@ -167,7 +167,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Search Engine Optimization (SEO) & Marketing",
-    price: null,
+    price: "$300 - $800 (homepage & core pages); $75 - $200/blog post; $30 - $75/product description",
     description: "Even a great-looking site won't convert if the words on it don't tell visitors why they should care.",
     features: [
       "Homepage and core page copy",
@@ -183,7 +183,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Maintenance & Support",
-    price: null,
+    price: "$95 - $195/mo",
     description: "A neglected website becomes a vulnerable one, and small issues left alone turn into downtime.",
     features: [
       "Regular backups",
@@ -199,7 +199,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Maintenance & Support",
-    price: null,
+    price: "$250 - $450/mo",
     description: "When something breaks on your site, every hour of downtime is lost visitors and lost revenue.",
     features: [
       "Faster response time SLA",
@@ -215,7 +215,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Maintenance & Support",
-    price: null,
+    price: "$150 - $350 & $100 - $250/mo",
     description: "You can't improve what you're not measuring, and most site owners have no idea where visitors actually drop off.",
     features: [
       "Traffic and conversion dashboard setup",
@@ -231,7 +231,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Add-On Services",
-    price: null,
+    price: "$400 - $900",
     description: "A slow site doesn't just frustrate visitors, it gets penalized in search rankings too.",
     features: [
       "Image compression and lazy loading",
@@ -247,7 +247,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Add-On Services",
-    price: null,
+    price: "$600 - $1,800",
     description: "An inaccessible website can mean lost customers and legal exposure, and most issues are simple to fix once identified.",
     features: [
       "Automated + manual accessibility scan",
@@ -263,7 +263,7 @@ export const businessWebDevServices: Service[] = [
     category: "WebDev",
     audience: "Business",
     group: "Add-On Services",
-    price: null,
+    price: "$500 - $2,000 (integration-dependent)",
     description: "Disconnected tools mean manual double-entry; integrations let your systems actually talk to each other.",
     features: [
       "CRM or email marketing platform hookup",
