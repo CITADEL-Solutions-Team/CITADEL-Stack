@@ -54,6 +54,7 @@ func SendEmail(client ClientInfo) error {
 	stmpHost := os.Getenv("SMTP_HOST")
 	stmpPort := os.Getenv("SMTP_PORT")
 	username := os.Getenv("EMAIL_USERNAME")
+	fromaddr := os.Getenv("EMAIL_FROM")
 	password := os.Getenv("EMAIL_PASSWORD")
 	to := os.Getenv("COMPANY_EMAIL")
 
@@ -68,12 +69,12 @@ func SendEmail(client ClientInfo) error {
 	tmpl := template.Must(template.New("email").Parse(`
 	Client Information:
 	===================
-	Name: {{.ClientName}}
-	Email: {{.ClientEmail}}
-	Phone: {{.ClientPhone}}
-	Buisiness: {{.ClientBuisiness}}
-	Service: {{.ClientService}}
-	Message: {{.ClientMessage}}
+	Name: {{.Info.Name}}
+	Email: {{.Info.Email}}
+	Phone: {{.Info.Phone}}
+	Business: {{.Info.Business}}
+	Service: {{.Info.Service}}
+	Message: {{.Info.Message}}
 	Timestamp: {{.Timestamp}}
 	This message was sent automatically via API.
 	`))
@@ -94,7 +95,7 @@ func SendEmail(client ClientInfo) error {
 
 	// Configure email
 	m := gomail.NewMessage()
-	m.SetHeader("From", username)
+	m.SetHeader("From", fromaddr)
 	m.SetHeader("To", to)
 	m.SetHeader("Subject", "New Client Inquiry -"+client.Name)
 	m.SetBody("text/plain", emailBody.String())
