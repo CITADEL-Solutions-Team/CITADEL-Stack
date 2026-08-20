@@ -4,19 +4,21 @@
             <component :is="tagType"
             class="font-semibold text-[32px] underline"
             > {{ props.sectionName }} </component>
-            <RouterLink :to="'/services/service-directory'">
+            <RouterLink :to="'/services/directory'">
                 <button class="px-4 bg-(--MenuCard) rounded-2xl">View All</button>
             </RouterLink>
         </div>
         <div class="">
             <ul class="flex justify-center-safe gap-4 overflow-x-scroll lg:overflow-x-hide">
-                <li v-for="card in props.serviceTiers">
+                <li v-for="card in props.serviceTiers" :key="card.tier">
                     <ServiceBundleCard
                     :tagLevel="props.tagLevel"
                     :tier="card.tier"
+                    :name="card.name"
                     :tierInfo="card.tierInfo"
                     :price="card.price"
-                    :userNumber="card.userNumber"
+                    :pricingNote="card.pricingNote"
+                    :includesPreviousTier="card.includesPreviousTier"
                     :features="card.features"
                     :color="card.color"
                     ></ServiceBundleCard>
@@ -32,10 +34,12 @@
 
     interface ServiceTier {
         tier?: number,
+        name?: string,
         tierInfo?: string,
         price?: string,
-        userNumber?: string | null,
-        features?: string[],
+        pricingNote?: string,
+        includesPreviousTier?: boolean,
+        features?: Record<string, string[]>,
         color: string,
     }
 

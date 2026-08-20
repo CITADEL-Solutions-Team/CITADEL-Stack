@@ -10,11 +10,6 @@
 
     <ServiceBundle
     :tagLevel="2"
-    :sectionName="'Cybersecurity'"
-    :serviceTiers="cybersecCards"></ServiceBundle>
-
-    <ServiceBundle
-    :tagLevel="2"
     :sectionName="'Website Development'"
     :serviceTiers="webDevCards"></ServiceBundle>
 
@@ -64,74 +59,182 @@
         }
     ]
     const webDevCards = [
-        {
-            color: "#1C4BE3",
-            tier: 1,
-            tierInfo: "Tier 1 info",
-            price: "tbd",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3",
-            ],
-        },
-        {
-            color: "#1C4BE3",
-            tier: 2,
-            tierInfo: "Tier 2 info",
-            price: "tbd",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3",
-            ],
-        },
-        {
-            color: "#1C4BE3",
-            tier: 3,
-            tierInfo: "Tier 3 info",
-            price: "tbd",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3",
-            ],
+    {
+        color: "#1C4BE3",
+        tier: 1,
+        name: "Personal Starter Bundle",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X + $X/mo",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "Cloudflare Pages Hosting",
+            "Domain Setup & Management",
+            "Portfolio / Resume Website Setup",
+            "On-Page SEO Setup",
+            "Standard Maintenance Plan"
+        ]
         }
-    ]
+    },
+    {
+        color: "#1C4BE3",
+        tier: 2,
+        name: "Freelancer & Solopreneur Bundle",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X + $X/mo",
+        includesPreviousTier: true,
+        features: {
+        "Included Services": [
+            "Booking & Scheduling Integration",
+            "Copywriting (bio/services page)",
+            "Basic Analytics Setup"
+        ]
+        }
+    },
+    {
+        color: "#1C4BE3",
+        tier: 3,
+        name: "Creator Storefront Bundle",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X + $X/mo",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "Cloudflare Pages Hosting",
+            "Domain Setup & Management",
+            "Template Website Setup",
+            "Digital Product / Download Storefront Setup or Simple Online Shop Setup",
+            "Payment / Tip Jar Integration",
+            "On-Page SEO Setup",
+            "Standard Maintenance Plan"
+        ]
+        }
+    },
+    {
+        color: "#1C4BE3",
+        tier: 4,
+        name: "Content Creator / Blogger Bundle",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X + $X/mo",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "Cloudflare Pages Hosting",
+            "Domain Setup & Management",
+            "Personal Blog Setup",
+            "On-Page SEO Setup",
+            "Social Media Feed Integration",
+            "Standard Maintenance Plan"
+        ]
+        }
+    },
+    {
+        color: "#1C4BE3",
+        tier: 5,
+        name: "Custom Personal Brand Bundle",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X + $X/mo",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "Cloudflare Pages Hosting",
+            "Domain Setup & Management",
+            "Custom Template Design",
+            "Copywriting",
+            "Priority Support Plan",
+            "Basic Analytics Setup"
+        ]
+        }
+    }
+    ];
     const computerServicesCards = [
-        {
-            color: "#7725AE",
-            tier: 1,
-            tierInfo: "Tier 1 info",
-            price: "tbd",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3",
-            ],
-        },
-        {
-            color: "#7725AE",
-            tier: 2,
-            tierInfo: "Tier 2 info",
-            price: "tbd",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3",
-            ],
-        },
-        {
-            color: "#7725AE",
-            tier: 3,
-            tierInfo: "Tier 3 info",
-            price: "tbd",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3",
-            ],
+    {
+        color: "#7725AE",
+        tier: 1,
+        name: "Refresh Package",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X (one-time)",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "Software Cleanup & Tune-Up",
+            "PC Physical Cleaning",
+            "PC Health Checkup Report"
+        ]
         }
-    ]
+    },
+    {
+        color: "#7725AE",
+        tier: 2,
+        name: "Deep Clean & Diagnose",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X (one-time)",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "PC Physical Cleaning",
+            "Hardware Diagnosis",
+            "Virus & Malware Removal"
+        ]
+        }
+    },
+    {
+        color: "#7725AE",
+        tier: 3,
+        name: "New PC Day",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X (one-time)",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "New PC Setup",
+            "Network & Wi-Fi Setup",
+            "Data Backup Setup"
+        ]
+        }
+    },
+    {
+        color: "#7725AE",
+        tier: 4,
+        name: "Multi-PC Starter",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X (one-time)",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "Up to 5 PCs",
+            "New PC Setup or OS Reinstall per machine",
+            "Network & Wi-Fi Setup",
+            "30-day Remote Support Retainer included free"
+        ]
+        }
+    },
+    {
+        color: "#7725AE",
+        tier: 5,
+        name: "Gamer / Builder Bundle",
+        tierInfo: "",
+        price: "tbd",
+        pricingNote: "$X (one-time)",
+        includesPreviousTier: false,
+        features: {
+        "Included Services": [
+            "Build Advising Consult",
+            "Custom PC Build",
+            "BIOS Configuration & Update",
+            "Overclocking & Tuning Available as Add-on"
+        ]
+        }
+    }
+    ];
 
 </script>
