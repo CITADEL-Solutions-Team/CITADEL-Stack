@@ -1,7 +1,6 @@
 <template>
     <div id="Wrapper"
-    class="flex justify-center 
-    px-16 md:px-32 lg:px-48 
+    class="flex justify-center
     py-12"
     >
         <div id="Statistics"

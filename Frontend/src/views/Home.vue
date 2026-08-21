@@ -1,8 +1,9 @@
 <template>
     <!-- Hero section. Takes in 2 Button inputs to allow for that extra layer of navigation -->
     <Hero
-    :ButtonOne="ButtonOne"
-    :ButtonTwo="ButtonTwo"
+    :tagLevel="1"
+    :buttonOne="ButtonOne"
+    :buttonTwo="ButtonTwo"
     >
         <template v-slot:Hook>
             Secure Today. Protect Tomorrow.
@@ -13,97 +14,39 @@
     </Hero>
     
     <!-- Can literally take in anything and just turns it into a list with a header to the left -->
-    <ListWithHeader>
-        <template v-slot:Header>
-            Why CITADEL?
-        </template>
-        <template v-slot:List>
-            <InfoCard>
-                <template v-slot:Header>
-                    A Local Team That Treats You Like a Client, Not a Ticket
-                </template>
-                <template v-slot:Body>
-                    We're a local startup which means every client gets our full attention. You'll work directly with the people solving your problems, not a rotating help desk. When you call, someone who knows your setup picks up.
-                </template>
-            </InfoCard>
-            <InfoCard>
-                <template v-slot:Header>
-                    No Jargon. No Surprises.
-                </template>
-                <template v-slot:Body>
-                    We explain what we're doing and why in plain language. You'll always know exactly where you stand… no mystery invoices, no upsells you didn't ask for, no confusing reports you have to decode yourself.
-                </template>
-            </InfoCard>
-        </template>
+    <ListWithHeader
+    :header="'Why Citadel?'"
+    :tagLevel="2"
+    :list="lWHeadList"
+    >
+        
     </ListWithHeader>
 
-    <!-- Only works well with even number of objects. Will adapt to really any screen size and look good -->
-    <StatsBlock>
-        <StatCard>
-            <template v-slot:Stat>
-                43%
-            </template>
-            <template v-slot:Blurb>
-                of cyber attacks target small businesses
-            </template>
-            <template v-slot:Source>
-                Verizon / Cybersecurity Magazine
-            </template>
-        </StatCard>
-        <StatCard>
-            <template v-slot:Stat>
-                $1.5M+
-            </template>
-            <template v-slot:Blurb>
-                average cost of a ransomware attack
-            </template>
-            <template v-slot:Source>
-                Sophos 2023 State of Ransomware Report
-            </template>
-        </StatCard>
-        <StatCard>
-            <template v-slot:Stat>
-                99.9%
-            </template>
-            <template v-slot:Blurb>
-                of automated attacks blocked by MFA
-            </template>
-            <template v-slot:Source>
-                Microsoft Security Report. 2023
-            </template>
-        </StatCard>
-        <StatCard>
-            <template v-slot:Stat>
-                61%
-            </template>
-            <template v-slot:Blurb>
-                of small businesses experienced a breach in the past year
-            </template>
-            <template v-slot:Source>
-                PreVeil 2025
-            </template>
-        </StatCard>
-    </StatsBlock>
+    <ExploreServiceBundles 
+    :tagLevel="2" 
+    :cards="exploreSvcList"
+    />
 
     <WhereToStart
-    :Button="ButtonThree"
+    :button="ButtonThree"
     >
         <template v-slot:Header>
-            Not sure where to start? That's exactly what the first call is for.
+            Not sure where to start? That's what the first call is for!
         </template>
         <template v-slot:Body>
             We offer a free, no-pressure consultation for every new client. In 30 minutes we'll identify your biggest gaps and walk you through what it would take to close them. No commitment required.
+        </template>
+        <template v-slot:SupTxt>
+            Schedule your <bdi class="text-(--Accent)">free</bdi> consultation today!
         </template>
     </WhereToStart>
 </template>
 
 <script setup lang="ts">
-    import InfoCard from '@/components/Cards/InfoCard.vue';
     import Hero from '@/components/Sections/Hero.vue';
     import ListWithHeader from '@/components/Sections/ListWithHeader.vue';
-    import StatsBlock from '@/components/Sections/StatsBlock.vue';
-    import StatCard from '@/components/Cards/StatCard.vue';
     import WhereToStart from '@/components/Sections/WhereToStart.vue';
+    import ExploreServiceBundles from '@/components/Sections/ExploreServiceBundles.vue';
 
     const ButtonOne: { label: string, to: string } = {
         label: "About Us",
@@ -119,4 +62,30 @@
         label: "Contact Us",
         to: "/contact-us"
     }
+
+    const lWHeadList = [
+        {
+            header: "A Local Team that treats you like a client, not a ticket",
+            body: "We're a local startup which means every client gets our full attention. You'll work directly with the people solving your problems, not a rotating help desk. When you call, someone who knows your setup picks up.",
+        },
+        {
+            header: "No Jargon, No Surprises.",
+            body: "We explain what we're doing and why in plain language. You'll always know exactly where you stand… no mystery invoices, no upsells you didn't ask for, no confusing reports you have to decode yourself."
+        },
+    ]
+
+    const exploreSvcList = [
+        {
+            service: "Cybersecurity",
+            to: "/services",
+        },
+        {
+            service: "Website Development",
+            to: "/services",
+        },
+        {
+            service: "Computer Services",
+            to: "/services",
+        },
+    ]
 </script>

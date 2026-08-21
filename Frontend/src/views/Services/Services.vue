@@ -18,7 +18,10 @@
                             >
                                 <InfoCard class="bg-[#0C1218]">
                                     <template v-slot:Header>
-                                        SMB
+                                        Business
+                                    </template>
+                                    <template v-slot:Body>
+                                        Business Service Bundles
                                     </template>
                                 </InfoCard>
                             </RouterLink>
@@ -27,7 +30,10 @@
                             >
                                 <InfoCard class="bg-[#0C1218]">
                                     <template v-slot:Header>
-                                        Home
+                                        Personal
+                                    </template>
+                                    <template v-slot:Body>
+                                        Personal Service Bundles
                                     </template>
                                 </InfoCard>
                             </RouterLink>
@@ -35,27 +41,9 @@
                     </template>
                 </InfoCard>
             </div>
-            <RouterLink
-            :to=services[2].To
-            class="col-span-2">
-                <InfoCard>
-                    <template v-slot:Header>
-                        PC-Repair
-                    </template>
-                </InfoCard>
-            </RouterLink>
-            <RouterLink
-            :to=services[3].To
-            class="col-span-2">
-                <InfoCard>
-                    <template v-slot:Header>
-                        Website Management
-                    </template>
-                </InfoCard>
-            </RouterLink>
         </div>
     </div>
-    <WhereToStart :Button="contactPage">
+    <WhereToStart :button="contactPage">
         <template v-slot:Header>
             Need something outside these tiers?
         </template>
@@ -70,26 +58,18 @@ import InfoCard from '@/components/Cards/InfoCard.vue';
 import WhereToStart from '@/components/Sections/WhereToStart.vue';
 
     const contactPage: { label: string, to: string } = {
-        label: "Contact Us",
-        to: "/contact-us"
+        label: "Service Directory",
+        to: "/services/directory"
     }
 
     const services = [
         {
-            Name: "SMB Cyber Security",
-            To: "/services/cyber-sec"
+            Name: "Business",
+            To: "/services/bundles/business"
         },
         {
-            Name: "Home Security",
-            To: "/services/home-sec"
+            Name: "Personal",
+            To: "/services/bundles/personal"
         },
-        {
-            Name: "PC Services",
-            To: "/services/pc-repairs"
-        },
-        {
-            Name: "Web Dev",
-            To: "services/web-dev"
-        }
     ]
 </script>

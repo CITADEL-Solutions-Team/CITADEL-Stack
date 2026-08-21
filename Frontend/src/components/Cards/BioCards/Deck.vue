@@ -1,17 +1,20 @@
-<!-- TeamDeck.vue -->
 <template>
-  <div class="deck-container 
-  relative w-full
-  h-260 flex items-center justify-center">
+  <div
+    class="deck-container relative w-full h-260 flex items-center justify-center"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Team members"
+  >
     <TeamCard
       v-for="(member, index) in members"
       :key="member.Name"
+      :ref="el => cardRefs[index] = el"
       :Info="member"
       :IsFlipped="flippedIndex === index"
+      :Active="currentIndex === index"
       :style="getCardStyle(index)"
       class="absolute origin-bottom transition-transform duration-300 ease-out cursor-pointer"
       @click="selectCard(index)"
-      @flip="toggleFlip(index)"
       @mouseenter="hoveredIndex = index"
       @mouseleave="hoveredIndex = null"
     />
@@ -19,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 import TeamCard from './BioCard.vue';
 import type { Bio } from './BioInfo';
 
@@ -28,8 +31,9 @@ const props = defineProps<{ members: Bio[] }>();
 const currentIndex = ref(0);
 const flippedIndex = ref<number | null>(null);
 const hoveredIndex = ref<number | null>(null);
+const cardRefs = ref<any[]>([]);
 
-const angleStep = 8; // degrees between each card
+const angleStep = 8;
 
 const viewportWidth = ref(window.innerWidth);
 
@@ -37,10 +41,29 @@ function updateWidth() {
   viewportWidth.value = window.innerWidth;
 }
 
-onMounted(() => window.addEventListener('resize', updateWidth));
-onUnmounted(() => window.removeEventListener('resize', updateWidth));
+function focusCurrent() {
+  nextTick(() => cardRefs.value[currentIndex.value]?.focus());
+}
 
-// JS equivalent of clamp(200px, 40vw, 600px) — tune min/max/multiplier to taste
+function handleKeydown(e: KeyboardEvent) {
+  if (e.key === 'ArrowRight') {
+    selectCard(Math.min(currentIndex.value + 1, props.members.length - 1));
+    focusCurrent();
+  } else if (e.key === 'ArrowLeft') {
+    selectCard(Math.max(currentIndex.value - 1, 0));
+    focusCurrent();
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', updateWidth);
+  window.addEventListener('keydown', handleKeydown);
+});
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWidth);
+  window.removeEventListener('keydown', handleKeydown);
+});
+
 const radius = computed(() => {
   const min = 200;
   const max = 600;
@@ -50,6 +73,8 @@ const radius = computed(() => {
 
 function selectCard(index: number) {
   currentIndex.value = index;
+  focusCurrent();
+  toggleFlip(index)
 }
 
 function toggleFlip(index: number) {
