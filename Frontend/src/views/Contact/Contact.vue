@@ -66,19 +66,15 @@
     // Hold list of services with backend values and app-layer labels.
     const serviceList:Service[] = [
         {
-            Label: "SMB CyberSecurity",
+            Label: "CyberSecurity",
             Value: "smb_sec"
         },
         {
-            Label: "Home CyberSecurity",
-            Value: "home_sec"
-        },
-        {
-            Label: "Website Developement and management",
+            Label: "Website Developement",
             Value: "web_dev"
         },
         {
-            Label: "PC Repair and IT",
+            Label: "Computer Services",
             Value: "pc_it"
         }
     ]
