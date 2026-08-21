@@ -31,9 +31,17 @@
             Name: "Dylan Clark",
             Team: "DEV",
             Role: "President",
-            Color: "#1E90FF",
+            Color: "#FFFB00",
             To: "/about-us/dclark",
             Rare: true,
+        },
+        {
+            Name: "Tommy O'Donnell",
+            Team: "SEC",
+            Role: "Cybersecurity team",
+            Color: "#FF1E1E",
+            To: "/about-us/todonnell",
+            Rare: false,
         },
         {
             Name: "Nick Rutgier",
@@ -68,14 +76,6 @@
             Rare: false,
         },
         {
-            Name: "Tommy O'Donnell",
-            Team: "SEC",
-            Role: "Cybersecurity team",
-            Color: "#FF1E1E",
-            To: "/about-us/todonnell",
-            Rare: false,
-        },
-        {
             Name: "Xander TBD",
             Team: "IT",
             Role: "Technician",
@@ -89,14 +89,6 @@
             Role: "Technician",
             Color: "#A227F3",
             To: "/about-us/isXXXX",
-            Rare: false,
-        },
-        {
-            Name: "Matias TBD",
-            Team: "TBD",
-            Role: "",
-            Color: "",
-            To: "",
             Rare: false,
         },
     ]

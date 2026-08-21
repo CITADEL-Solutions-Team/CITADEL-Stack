@@ -74,22 +74,22 @@ const router = createRouter({
         name: "Policies",
         children: [
             {
-                path: "privacy-policy",
+                path: "/policies/privacy-policy",
                 name: "PrivacyPolicy",
                 component: () => import('@/views/Policies/Privacy.vue')
             },
             {
-                path: "cookie-policy",
+                path: "/policies/cookie-policy",
                 name: "CookiePolicy",
                 component: () => import('@/views/Policies/Cookies.vue')
             },
             {
-                path: "terms-of-service",
+                path: "/policies/terms-of-service",
                 name: "TermsOfService",
                 component: () => import('@/views/Policies/TermsOfService.vue')
             },
             {
-                path: "accessibility-statement",
+                path: "/policies/accessibility-statement",
                 name: "AccessibilityStatement",
                 component: () => import('@/views/Policies/Accessibility.vue')
             }
