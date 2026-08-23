@@ -1,13 +1,20 @@
 <template>
     <div class="py-4">
-        <button class="bg-(--MenuCard) border border-(--Accent) rounded-2xl p-5 mb-8"
+        <button class="p-5 mb-8 w-full flex group gap-4"
         @click="open = !open"
         >
-            <component :is="tagType" class="text-xl lg:text-2xl">
+            <component :is="tagType" class="rounded bg-linear-to-b from-[#1062B2] to-[#072A4C] border border-(--Accent) 
+            group-hover:from-(--Accent) text-xl lg:text-2xl flex-1">
                 {{ props.question }}
             </component>
+            <div class="bg-(--MenuCard) p-2 aspect-square flex content-center self-end 
+            rounded bg-linear-to-b from-[#1062B2] to-[#072A4C] border border-(--Accent) group-hover:from-(--Accent)"
+            >
+                <p v-if="open" class="self-center text-center min-w-3.75 min-h-3.75">⮟</p>
+                <p v-else class="self-center text-center min-w-3.75 min-h-3.75">⮞</p>
+            </div>
         </button>
-        <p v-if="open" v-html="parsedAnswer" @click="handleLinkClick"></p>
+        <p v-if="open" v-html="parsedAnswer" @click="handleLinkClick" class="pl-8"></p>
     </div>
 </template>
 

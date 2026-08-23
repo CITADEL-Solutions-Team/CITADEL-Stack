@@ -15,14 +15,14 @@
 
         <div class="grid grid-flow-col gap-4">
             <RouterLink 
-            class="text-(--Background) bg-(--Accent) rounded p-1"
+            class="text-(--Background) bg-(--Accent) rounded p-1 border-2 border-(--Accent) hover:border-white"
             :to="props.buttonOne.to"
             > 
                 {{ props.buttonOne.label }}
             </RouterLink>
             
             <RouterLink 
-            class="text-(--Accent) border-2 border-(--Accent) rounded p-1"
+            class="text-(--Accent) border-2 border-(--Accent) rounded p-1 hover:border-white"
             :to="props.buttonTwo.to"
             > 
                 {{ props.buttonTwo.label }}
