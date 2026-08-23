@@ -60,12 +60,12 @@
 
             <nav class="flex justify-center gap-16">
                 <RouterLink :to="'/services/bundles/business'" 
-                class="text-center bg-(--AltCard) px-4 py-8 text-3xl font-semibold border-2 border-(--Accent) rounded-xl"
+                class="text-center bg-(--AltCard) px-4 py-8 text-3xl font-semibold border-2 border-(--Accent) rounded-xl hover:border-white hover:bg-(--MenuCard)"
                 >
                     <button> Business </button>
                 </RouterLink>
                 <RouterLink :to="'/services/bundles/personal'"
-                class="text-center bg-(--AltCard) px-4 py-8 text-3xl font-semibold border-2 border-(--Accent) rounded-xl"
+                class="text-center bg-(--AltCard) px-4 py-8 text-3xl font-semibold border-2 border-(--Accent) rounded-xl hover:border-white hover:bg-(--MenuCard)"
                 >
                     <button> Personal </button>
                 </RouterLink>
