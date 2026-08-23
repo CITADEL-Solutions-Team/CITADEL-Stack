@@ -91,13 +91,5 @@
             To: "/about-us/isXXXX",
             Rare: false,
         },
-        {
-            Name: "Matias TBD",
-            Team: "TBD",
-            Role: "",
-            Color: "",
-            To: "",
-            Rare: false,
-        },
     ]
 </script>
