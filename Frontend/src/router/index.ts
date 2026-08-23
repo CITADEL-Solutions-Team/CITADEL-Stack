@@ -34,12 +34,7 @@ const router = createRouter({
             {
                 path: "",
                 name: "ServicesOverview",    
-                component: () => import('@/views/Services/Services.vue'),
-            },
-            {
-                path: "/services/directory",
-                name: "ServiceDirectory",
-                component: () => import('@/views/Services/ServiceDirectory.vue')
+                component: () => import('@/views/Services/ServiceDirectory.vue'),
             },
             {
                 path: "/services/bundles",
