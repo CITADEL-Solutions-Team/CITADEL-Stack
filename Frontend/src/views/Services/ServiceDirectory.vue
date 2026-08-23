@@ -15,7 +15,7 @@
                 class="bg-white rounded-lg border-(--Accent) text-black text-xl py-1 px-2 flex-1"
                 >
                     <button 
-                    class="px-4 py-2 bg-linear-to-b from-[#2D5B89] to-black border border-(--Accent) rounded-lg font-bold text-2xl"
+                    class="px-4 py-2 bg-linear-to-b from-[#2D5B89] to-black border-2 border-(--Accent) rounded-lg font-bold text-2xl hover:border-white hover:from-(--Accent)"
                     >Search</button>
             </div>
 
