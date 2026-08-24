@@ -88,7 +88,7 @@
     const generalFaqs: FaqInfo[] = [
         {
             question: "What is Citadel Solutions?",
-            answer: "Citadel Solutions is an upcoming tech services company specializing in helping businesses (and individuals) thrive digitally. Our core expertise lies in providing robust [Cybersecurity for Small Businesses](CyberSecServices) & [Homes](HomeSec), developing functional websites with our [Website Development](WebDev) services, and offering expert PC repair through our [PC Repair](PCRepairs) service. We tailor solutions to meet your specific needs."
+            answer: "Citadel Solutions helps individuals, homeowners, and small businesses protect their privacy, understand their technology, and take control of the devices, data, and digital services they rely on every day. Through cybersecurity, computer services, and web development, we provide practical solutions without unnecessary complexity. Everyone deserves technology they can trust and understand."
         },
         {
             question: "How can I get started with Citadel Solutions?",
@@ -139,14 +139,14 @@
         },
         {
             question: "Who is targeting my privacy?",
-            answer: "tbd answer",
+            answer: "Cyber threats can come from various sources, including hackers, cybercriminals, competitors, and even insiders. The motives can range from financial gain to data theft or disruption of services. Our cybersecurity services are designed to protect against these threats by implementing robust security measures and monitoring for suspicious activity.",
         },
     ]
     const webDevFaqs: FaqInfo[] = [
 
         {
             question: "What is Website Development?",
-            answer: "tbd answer",
+            answer: "Website development is the process of creating and maintaining websites. It encompasses several aspects, including web design, web content development, client-side/server-side scripting, and network security configuration. Our team focuses on building functional, user-friendly, and visually appealing websites that meet your business goals.",
         },
         {
             question: "What kind of websites do you typically build?",
@@ -154,11 +154,11 @@
         },
         {
             question: "Is regular website maintenance included?",
-            answer: "tbd answerc",
+            answer: "Yes and no. We provide ongoing maintenance and support as part of our service packages, which can include updates, backups, security monitoring, and performance optimization. However, if you choose a one-time development project without a maintenance plan, we can provide guidance on how to manage your site or offer maintenance as an optional service.",
         },
         {
             question: "I already have a website, what else can Citadel do for me?",
-            answer: "tbd answer",
+            answer: "We have serveral services to enhance your existing website. This includes performance optimization, ADA/WCAG accessability support, content updates, SEO improvements, and adding new features or integrations. We can also provide analytics and reporting to help you understand your site's performance.",
         },
     ]
     const computerServicesFaqs: FaqInfo[] = [
@@ -168,15 +168,15 @@
         },
         {
             question: "Can Citadel help me recover data from an old computer?",
-            answer: "tbd answer",
+            answer: "Yes! We offer data recovery services for various storage devices. Our team can assess the situation and attempt to recover your important files, depending on the condition of the device.",
         },
         {
             question: "I have the parts to build a computer, can Citadel build the computer at a lower price?",
-            answer: "tbd answer",
+            answer: "Of course! Instead of purchasing a pre-built system, we can assemble your custom PC using the parts you provide. Our service includes assembly, testing, and ensuring everything runs smoothly.",
         },
         {
             question: "Does Citadel also clean and repair gaming consoles?",
-            answer: "tbd answer",
+            answer: "Yes! We provide cleaning and repair services for gaming consoles. Our technicians can address common issues, perform maintenance, and ensure your console is functioning optimally.",
         },
     ]
 </script>
