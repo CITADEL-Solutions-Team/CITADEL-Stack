@@ -88,7 +88,7 @@
     const generalFaqs: FaqInfo[] = [
         {
             question: "What is Citadel Solutions?",
-            answer: "Citadel Solutions is an upcoming tech services company specializing in helping businesses (and individuals) thrive digitally. Our core expertise lies in providing robust [Cybersecurity for Small Businesses](CyberSecServices) & [Homes](HomeSec), developing functional websites with our [Website Development](WebDev) services, and offering expert PC repair through our [PC Repair](PCRepairs) service. We tailor solutions to meet your specific needs."
+            answer: "Citadel Solutions helps individuals, homeowners, and small businesses protect their privacy, understand their technology, and take control of the devices, data, and digital services they rely on every day. Through cybersecurity, computer services, and web development, we provide practical solutions without unnecessary complexity. Everyone deserves technology they can trust and understand."
         },
         {
             question: "How can I get started with Citadel Solutions?",
