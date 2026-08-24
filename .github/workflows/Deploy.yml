@@ -32,7 +32,7 @@ jobs:
 
       - name: Update symlink
         run: ssh citadel@10.10.20.31 "ln -sfn /var/www/releases/${{ github.sha }} /var/www/current"
-  
+
   deploy-backend:
     runs-on: self-hosted
     steps:
@@ -64,8 +64,9 @@ jobs:
             exit 1
           fi
 
-      - name: Stop, swap, start
+      - name: Stop, backup, swap, start
         run: |
           ssh deploy@10.10.20.32 "doas /sbin/rc-service citadel-backend stop"
+          ssh deploy@10.10.20.32 "cp /opt/citadel-backend/citadel-backend /opt/citadel-backend/citadel-backend.bak"
           ssh deploy@10.10.20.32 "mv /opt/citadel-backend/citadel-backend.new /opt/citadel-backend/citadel-backend"
           ssh deploy@10.10.20.32 "doas /sbin/rc-service citadel-backend start"
