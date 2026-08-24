@@ -55,7 +55,7 @@
             <p class="pb-2">We regularly monitor our website for accessibility issues using automated tools and manual testing. We are committed to continuous improvement and will update this statement as we make progress toward full compliance.</p>
         </li>
     </ul>
-    <p class="py-4">This statement was generated to align with WCAG 2.1 AA standards. For specific technical details regarding our implementation, please contact our engineering team.</p>
+    <p class="py-4">This statement was created to align with WCAG 2.1 AA standards. For specific technical details regarding our implementation, please contact our engineering team.</p>
 </template>
 
 <script setup lang="ts">
