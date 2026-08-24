@@ -21,7 +21,7 @@
             </component>
         </div>
         <div class="flex justify-center-safe">
-            <RouterLink class="px-4 py-3 bg-(--Accent) rounded-lg w-full md:w-auto text-center"
+            <RouterLink class="px-4 py-3 bg-(--Accent) rounded-lg w-full md:w-auto text-center hover:border-white hover:border hover:font-semibold" 
             :to="props.button.to">
                 <button>{{ props.button.label }}</button>
             </RouterLink>

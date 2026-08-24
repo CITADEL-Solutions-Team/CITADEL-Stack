@@ -1,7 +1,21 @@
+// index.ts
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        top: 80,
+        behavior: 'smooth',
+      }
+    }
+    if (savedPosition) {
+      return savedPosition
+    }
+    return { top: 0 }
+  },
   routes: [
     {
         component: () => import('@/views/Home.vue'),
@@ -34,12 +48,7 @@ const router = createRouter({
             {
                 path: "",
                 name: "ServicesOverview",    
-                component: () => import('@/views/Services/Services.vue'),
-            },
-            {
-                path: "/services/directory",
-                name: "ServiceDirectory",
-                component: () => import('@/views/Services/ServiceDirectory.vue')
+                component: () => import('@/views/Services/ServiceDirectory.vue'),
             },
             {
                 path: "/services/bundles",

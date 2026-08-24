@@ -1,9 +1,11 @@
 <template>
   <div
-    class="deck-container relative w-full h-260 flex items-center justify-center"
+    class="deck-container relative w-full h-[clamp(360px,60vh,1040px)] flex items-center justify-center overflow-x-hidden"
     role="region"
     aria-roledescription="carousel"
     aria-label="Team members"
+    @touchstart.passive="handleTouchStart"
+    @touchend="handleTouchEnd"
   >
     <TeamCard
       v-for="(member, index) in members"
@@ -33,12 +35,40 @@ const flippedIndex = ref<number | null>(null);
 const hoveredIndex = ref<number | null>(null);
 const cardRefs = ref<any[]>([]);
 
-const angleStep = 8;
-
 const viewportWidth = ref(window.innerWidth);
 
 function updateWidth() {
   viewportWidth.value = window.innerWidth;
+}
+
+const touchStartX = ref<number | null>(null);
+const touchStartY = ref<number | null>(null);
+
+function handleTouchStart(e: TouchEvent) {
+  touchStartX.value = e.touches[0].clientX;
+  touchStartY.value = e.touches[0].clientY;
+}
+
+function handleTouchEnd(e: TouchEvent) {
+  if (touchStartX.value === null) return;
+  const deltaX = e.changedTouches[0].clientX - touchStartX.value;
+  const deltaY = e.changedTouches[0].clientY - (touchStartY.value ?? 0);
+  touchStartX.value = null;
+  touchStartY.value = null;
+
+  // ignore short or mostly-vertical swipes so page-scroll gestures pass through
+  if (Math.abs(deltaX) < 40 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+
+  if (deltaX < 0) {
+    moveTo(Math.min(currentIndex.value + 1, props.members.length - 1));
+  } else {
+    moveTo(Math.max(currentIndex.value - 1, 0));
+  }
+}
+
+function moveTo(index: number) {
+  currentIndex.value = index;
+  focusCurrent();
 }
 
 function focusCurrent() {
@@ -64,10 +94,14 @@ onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown);
 });
 
+const angleStep = computed(() => (viewportWidth.value < 640 ? 10 : 8));
+
 const radius = computed(() => {
-  const min = 200;
-  const max = 600;
-  const preferred = viewportWidth.value * 0.4;
+  const isMobile = viewportWidth.value < 640;
+  const min = isMobile ? 140 : 200;
+  const max = isMobile ? 260 : 600;
+  const factor = isMobile ? 0.5 : 0.4;
+  const preferred = viewportWidth.value * factor;
   return Math.min(Math.max(preferred, min), max);
 });
 
@@ -83,7 +117,7 @@ function toggleFlip(index: number) {
 
 function getCardStyle(index: number) {
   const offset = index - currentIndex.value;
-  const angleDeg = offset * angleStep;
+  const angleDeg = offset * angleStep.value; // .value added
   const angleRad = (angleDeg * Math.PI) / 180;
 
   const translateX = radius.value * Math.sin(angleRad);

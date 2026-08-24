@@ -3,7 +3,7 @@
         <h1 class="text-center text-5xl font-bold text-(--Accent) py-6"
         >Services</h1>
         <!-- Search and filter -->
-        <div class="flex flex-col gap-4 px-10 py-6 bg-linear-to-b from-[#1062B2] to-[#072A4C] w-full">
+        <div class="flex flex-col gap-4 px-10 py-6 bg-linear-to-b from-[#1062B2] to-[#072A4C] w-full border-y-2 border-(--Accent)">
             <!-- The search bard -->
             <div class="flex gap-4">
                 <input 
@@ -12,18 +12,18 @@
                 id="Search all services"
                 v-model="searchQuery"
                 placeholder="Search all services"
-                class="bg-white rounded-lg border-(--Accent) text-black text-xl py-1 px-2 flex-1"
+                class="bg-white rounded-lg border-(--Accent) text-black text-lg py-1 px-2 flex-1"
                 >
                     <button 
-                    class="px-4 py-2 bg-linear-to-b from-[#2D5B89] to-black border border-(--Accent) rounded-lg font-bold text-2xl"
+                    class="px-4 py-2 bg-linear-to-b from-[#2D5B89] to-black border-2 border-(--Accent) rounded-lg font-bold text-xl md:text-2xl hover:border-white hover:from-(--Accent)"
                     >Search</button>
             </div>
 
             <!-- The filters -->
-            <div class="flex">
+            <div class="flex flex-col">
                 <p>Filter by:</p>
                 <div class="pl-4">
-                    <div class="">
+                    <div class="flex flex-col">
                         <label>
                             <input type="checkbox" value="WebDev" v-model="categoryFilters">
                             Web Dev
@@ -37,7 +37,7 @@
                             Computer Services
                         </label>
                     </div>
-                    <div class="">
+                    <div class="pt-4">
                         <label>
                             <input type="checkbox" value="Business" v-model="audienceFilters">
                             Business
@@ -60,12 +60,12 @@
 
             <nav class="flex justify-center gap-16">
                 <RouterLink :to="'/services/bundles/business'" 
-                class="text-center bg-(--AltCard) px-4 py-8 text-3xl font-semibold border-2 border-(--Accent) rounded-xl"
+                class="text-center bg-(--AltCard) px-4 py-8 text-3xl font-semibold border-2 border-(--Accent) rounded-xl hover:border-white hover:bg-(--MenuCard)"
                 >
                     <button> Business </button>
                 </RouterLink>
                 <RouterLink :to="'/services/bundles/personal'"
-                class="text-center bg-(--AltCard) px-4 py-8 text-3xl font-semibold border-2 border-(--Accent) rounded-xl"
+                class="text-center bg-(--AltCard) px-4 py-8 text-3xl font-semibold border-2 border-(--Accent) rounded-xl hover:border-white hover:bg-(--MenuCard)"
                 >
                     <button> Personal </button>
                 </RouterLink>
@@ -75,7 +75,7 @@
         <!-- The results -->
         <div class="border-t-2 border-(--Accent)">
             <section v-for="category in groupedServices">
-                <h3>{{ category[0] }}</h3>
+                <h3 class="text-2xl underline font-semibold">{{ category[0] }}</h3>
                 <ul>
                     <li v-for="svc in category[1]"
                     class="mb-2 p-4"

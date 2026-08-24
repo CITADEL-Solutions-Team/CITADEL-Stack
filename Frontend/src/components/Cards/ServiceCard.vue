@@ -2,18 +2,16 @@
     <div 
     class="border-2 border-(--Accent) rounded-lg
     bg-linear-to-r from-(--MenuCard) to-(#03191C)
-    mx-8 my-4 grid grid-cols-2"
+    my-4 grid grid-cols-2"
     >
-        <div
-        class="p-4 grid grid-cols-5 col-span-2"
-        >
-            <ul id="BulletPoints"
-            class="px-4 col-span-3"
-            >
-                <li v-for="feature in props.features">
-                    > {{ feature }}
+        <div class="p-4 grid grid-cols-1 md:grid-cols-5 col-span-2">
+            <ul class="px-4 col-span-3">
+                <li v-for="feature in props.features" class="flex">
+                    <p> > </p>
+                    <p>{{ feature }}</p>
                 </li>    
             </ul>
+            
             <div
             class="col-span-2 border-l-4 border-(--Accent) pt-2 pb-4 pl-2 mr-1 bg-(--MenuCard)"
             >
