@@ -1,0 +1,72 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-frontend:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./Frontend
+
+      - name: Build frontend
+        run: npm run build
+        working-directory: ./Frontend
+
+      - name: Create destination directory
+        run: ssh citadel@10.10.20.31 "mkdir -p /var/www/releases/${{ github.sha }}"
+
+      - name: Copy new build to frontend CT
+        run: scp -r Frontend/dist/* citadel@10.10.20.31:/var/www/releases/${{ github.sha }}/
+
+      - name: Update symlink
+        run: ssh citadel@10.10.20.31 "ln -sfn /var/www/releases/${{ github.sha }} /var/www/current"
+
+  deploy-backend:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26'
+
+      - name: Build backend
+        run: go build -o citadel-backend .
+        working-directory: ./Backend
+
+      - name: Get checksum of built binary
+        id: local_sum
+        run: echo "sum=$(sha256sum citadel-backend | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+        working-directory: ./Backend
+
+      - name: Copy new binary to backend CT
+        run: scp Backend/citadel-backend deploy@10.10.20.32:/opt/citadel-backend/citadel-backend.new
+
+      - name: Verify checksum on remote
+        run: |
+          REMOTE_SUM=$(ssh deploy@10.10.20.32 "sha256sum /opt/citadel-backend/citadel-backend.new | awk '{print \$1}'")
+          if [ "$REMOTE_SUM" != "${{ steps.local_sum.outputs.sum }}" ]; then
+            echo "Checksum mismatch! Aborting deploy."
+            exit 1
+          fi
+
+      - name: Stop, backup, swap, start
+        run: |
+          ssh deploy@10.10.20.32 "doas /sbin/rc-service citadel-backend stop"
+          ssh deploy@10.10.20.32 "cp /opt/citadel-backend/citadel-backend /opt/citadel-backend/citadel-backend.bak"
+          ssh deploy@10.10.20.32 "mv /opt/citadel-backend/citadel-backend.new /opt/citadel-backend/citadel-backend"
+          ssh deploy@10.10.20.32 "doas /sbin/rc-service citadel-backend start"
