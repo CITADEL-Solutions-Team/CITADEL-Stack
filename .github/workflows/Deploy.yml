@@ -45,7 +45,7 @@ jobs:
           go-version: '1.26'
 
       - name: Build backend
-        run: go build -o citadel-backend ./cmd/citadel-server
+        run: go build -o citadel-backend ./cmd/citadel_server
         working-directory: ./Backend
 
       - name: Get checksum of built binary
