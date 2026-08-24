@@ -29,9 +29,9 @@
         },
         {
             Name: "Dylan Clark",
-            Team: "DEV",
+            Team: "CS",
             Role: "President",
-            Color: "#1E90FF",
+            Color: "#FFFB00",
             To: "/about-us/dclark",
             Rare: true,
         },
