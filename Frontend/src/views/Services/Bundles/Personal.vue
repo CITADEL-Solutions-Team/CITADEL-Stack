@@ -9,11 +9,13 @@
     </section>
 
     <ServiceBundle
+    id="WebsiteDevelopment"
     :tagLevel="2"
     :sectionName="'Website Development'"
     :serviceTiers="webDevCards"></ServiceBundle>
 
     <ServiceBundle
+    id="ComputerServices"
     :tagLevel="2"
     :sectionName="'Computer Services'"
     :serviceTiers="computerServicesCards"></ServiceBundle>

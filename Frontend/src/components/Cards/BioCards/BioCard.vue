@@ -24,7 +24,7 @@
     <div
         id="CardOuter"
         ref="outerRef"
-        class="card-outer aspect-2/3 w-[clamp(120px,22vw,320px)]"
+        class="card-outer aspect-2/3 w-[clamp(200px,34vw,320px)]"
         role="button"
         :tabindex="Active ? 0 : -1"
         :aria-label="`${Info.Name}, ${Info.Role}. Press to flip card.`"
