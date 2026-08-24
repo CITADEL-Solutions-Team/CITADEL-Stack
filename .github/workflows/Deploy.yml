@@ -66,6 +66,6 @@ jobs:
 
       - name: Stop, swap, start
         run: |
-          ssh citadel@10.10.20.32 "rc-service citadel-backend stop"
+          ssh citadel@10.10.20.32 "doas /sbin/rc-service citadel-backend stop"
           ssh citadel@10.10.20.32 "mv /opt/citadel-backend/citadel-backend.new /opt/citadel-backend/citadel-backend"
-          ssh citadel@10.10.20.32 "rc-service citadel-backend start"
+          ssh citadel@10.10.20.32 "doas /sbin/rc-service citadel-backend restart"  # no wait — start, not restart
