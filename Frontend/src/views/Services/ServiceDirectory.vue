@@ -38,14 +38,22 @@
                         </label>
                     </div>
                     <div class="pt-4">
-                        <label>
-                            <input type="checkbox" value="Business" v-model="audienceFilters">
-                            Business
-                        </label>
-                        <label>
-                            <input type="checkbox" value="Personal" v-model="audienceFilters">
-                            Personal
-                        </label>
+                        <div class="flex gap-2">
+                            <p class="text-lg underline font-semibold">{{'Service Section:'}}</p>
+                            <p class="text-lg">{{ label }} </p>
+                        </div>
+                        <div class="">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" v-model="audienceToggle" class="sr-only peer">
+                            <div class="w-11 h-6 bg-black rounded-full peer 
+                                        peer-checked:bg-(--Accent)
+                                        after:content-[''] after:absolute after:top-0.5 after:left-0.5
+                                        after:bg-white after:rounded-full after:h-5 after:w-5
+                                        after:transition-all
+                                        peer-checked:after:translate-x-5">
+                            </div> 
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,7 +104,12 @@
 
     const searchQuery: Ref<string> = ref("");
     const categoryFilters: Ref<Service["category"][]> = ref([]);
-    const audienceFilters: Ref<Service["audience"][]> = ref([]);
+
+    const audienceToggle: Ref<boolean> = ref(false)
+
+    const label: Ref<"Business"|"Personal"> = computed(() => audienceToggle.value ? "Business" : "Personal");
+
+    const audienceFilters: ComputedRef<Service["audience"][]> = computed(() => [label.value]);
 
     const filteredServices: ComputedRef<Service[]> = computed(() =>
     filterServices(searchQuery.value, categoryFilters.value, audienceFilters.value)
