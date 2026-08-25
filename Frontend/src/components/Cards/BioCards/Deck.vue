@@ -1,6 +1,6 @@
 <template>
   <div
-    class="deck-container relative w-full h-[clamp(360px,60vh,1040px)] flex items-center justify-center overflow-x-hidden"
+    class="deck-container relative w-full h-full flex items-center justify-center overflow-x-hidden"
     role="region"
     aria-roledescription="carousel"
     aria-label="Team members"
@@ -88,6 +88,7 @@ function handleKeydown(e: KeyboardEvent) {
 onMounted(() => {
   window.addEventListener('resize', updateWidth);
   window.addEventListener('keydown', handleKeydown);
+  selectCard(0);
 });
 onUnmounted(() => {
   window.removeEventListener('resize', updateWidth);
