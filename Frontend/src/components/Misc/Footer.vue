@@ -57,7 +57,7 @@
 
         <!-- Set Of links -->
         <ul class="flex flex-col gap-2 text-pretty">
-          <li v-for="link in Section.Links" :key="link.Label">
+          <li v-for="link in Section.Links" :key="link.Label" class="hover:underline">
             <a :href="link.To">{{ link.Label }}</a>
           </li>
         </ul>
