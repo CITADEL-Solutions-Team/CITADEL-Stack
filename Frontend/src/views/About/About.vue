@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-x-hidden">
+    <div class="overflow-x-hidden h-240">
         <Deck :members="bios"></Deck>
     </div>
 </template>

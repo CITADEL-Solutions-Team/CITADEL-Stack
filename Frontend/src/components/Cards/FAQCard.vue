@@ -1,6 +1,6 @@
 <template>
     <div class="py-4">
-        <button class="p-5 mb-8 w-full flex group gap-4"
+        <button class="p-5 w-full flex group gap-4"
         @click="open = !open"
         >
             <component :is="tagType" class="rounded bg-linear-to-b from-[#1062B2] to-[#072A4C] border border-(--Accent) 

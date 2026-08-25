@@ -77,7 +77,7 @@
         },
         {
             name: "Governing Law and Dispute Resolution",
-            body: "These Terms are governed by the laws of [Your State/Country]. Any disputes arising from the use of this Site shall be resolved exclusively in the courts of [Your City, State/Country], unless prohibited by local law.",
+            body: "These Terms are governed by the laws of Illinois Kane County. Any disputes arising from the use of this Site shall be resolved exclusively in the courts of Sugar Grove IL, unless prohibited by local law.",
             bps: [
 
             ],
