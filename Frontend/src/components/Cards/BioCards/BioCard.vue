@@ -250,6 +250,11 @@
 
     .card-back {
         transform: rotateY(180deg);
+        z-index: 2;
+    }
+
+    .card-front {
+        z-index: 1;
     }
 
     /* ---------- HOLO: LOGOS ----------
