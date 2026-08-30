@@ -20,7 +20,7 @@
             <label class="sr-only" for="service">Desired service category</label>
             <select id="service" class="bg-white text-black rounded-lg p-2" v-model="info.service">
                 <option disabled value="">Select a Service</option>
-                <option v-for="svc in serviceList" value="svc.Value"> {{ svc.Label }} </option>
+                <option v-for="svc in serviceList" :value="svc.Value"> {{ svc.Label }} </option>
             </select>
             
             <label class="sr-only" for="message">Message</label>
@@ -35,8 +35,23 @@
                 Submit
             </button>
 
+            <div v-if="sentSuccessfully" class="text-green-400">
+                Message sent. We'll get back to you within 24 business hours.
+            </div>
+            <div v-else-if="alreadySent > 0" class="text-yellow-400">
+                You've already submitted this recently. Please wait before sending again.
+            </div>
+            <div v-else-if="serverError" class="text-red-400">
+                Something went wrong on our end. Try again shortly, or call us directly.
+            </div>
+            <div v-else-if="questionable" class="text-red-400">
+                We couldn't process that request. Please check your info and try again.
+            </div>
+            <div v-else-if="rejected" class="text-red-400">
+                Please fill out all required fields correctly.
+            </div>
+
             <div class="italic">Email responses are sent within 24 business hours.</div>
-            <!-- should add handling for different response statuses -->
         </div>
     </div>
     
@@ -83,30 +98,34 @@
     const info:Ref<ContactInfo,ContactInfo> = ref({name: "",business: "",phone: "",email: "",service: "",message: "",})
 
     async function SendForm(contactInfo: ContactInfo) {
-        console.log(JSON.stringify(contactInfo, null, 2))
-        const response = await instance.post("/api/send-email", info.value)
-        
-        switch (response.status) {
-            case axios.HttpStatusCode.Ok: // 200
-                sentSuccessfully.value = true
-                break              
+        // reset state before each attempt so stale messages don't linger
+        sentSuccessfully.value = false
+        rejected.value = false
+        questionable.value = false
+        serverError.value = false
 
-            case axios.HttpStatusCode.BadRequest: // 400
-                rejected.value = true // 
-                break               
+        try {
+            const response = await instance.post("/api/send-email", contactInfo)
+            sentSuccessfully.value = true
+        } catch (err) {
+            if (!axios.isAxiosError(err) || !err.response) {
+                // network failure, timeout, CORS, etc, no response at all
+                serverError.value = true
+                return
+            }
 
-            case axios.HttpStatusCode.TooManyRequests: // 429
+            const status = err.response.status
+
+            if (status === axios.HttpStatusCode.TooManyRequests) {
                 alreadySent.value += 1
-                break               
-
-            default:
-                if (response.status >= 500 && response.status < 600) {
-                    serverError.value = true
-                } else {
-                    rejected.value = true
-                    questionable.value = true
-                }
-                break // We ain't handling all that. :skull: :sob: LMFAO!!!!!!!!
+            } else if (status === axios.HttpStatusCode.BadRequest) {
+                rejected.value = true
+            } else if (status >= 500 && status < 600) {
+                serverError.value = true
+            } else {
+                rejected.value = true
+                questionable.value = true
+            }
         }
     }
 </script>
