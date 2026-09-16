@@ -2,8 +2,8 @@ import type { Service } from "@/views/Services/Service";
 
 export const businessWebDevServices: Service[] = [
   {
-    id: "cloudflare-pages-workers-hosting-business",
-    name: "Cloudflare Pages & Workers Hosting",
+    id: "cloudflare-pages-hosting-business",
+    name: "Cloudflare Pages Hosting",
     category: "WebDev",
     audience: "Business",
     group: "Hosting & Infrastructure",
