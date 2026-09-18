@@ -88,7 +88,7 @@
             Team: "IT",
             Role: "Technician",
             Color: "#A227F3",
-            To: "/about-us/iswartz",
+            To: "/about-us/ishwartz",
             Rare: false,
         },
     ]
