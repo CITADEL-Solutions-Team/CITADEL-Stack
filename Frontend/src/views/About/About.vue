@@ -76,19 +76,19 @@
             Rare: false,
         },
         {
-            Name: "Xander TBD",
+            Name: "Xander Mosher",
             Team: "IT",
             Role: "Technician",
             Color: "#A227F3",
-            To: "/about-us/xXXXXXXX",
+            To: "/about-us/xmosher",
             Rare: false,
         },
         {
-            Name: "Ian S",
+            Name: "Ian Shwartz",
             Team: "IT",
             Role: "Technician",
             Color: "#A227F3",
-            To: "/about-us/isXXXX",
+            To: "/about-us/ishwartz",
             Rare: false,
         },
     ]

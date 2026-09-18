@@ -49,6 +49,7 @@ const router = createRouter({
                 path: "",
                 name: "ServicesOverview",    
                 component: () => import('@/views/Services/ServiceDirectory.vue'),
+                props: (route) => ({ Personal: route.query.section === 'personal' }),
             },
             {
                 path: "/services/bundles",
