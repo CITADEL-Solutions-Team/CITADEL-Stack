@@ -4,7 +4,13 @@
             <component :is="tagType"
             class="font-semibold text-[32px] underline"
             > {{ props.sectionName }} </component>
-            <RouterLink :to="'/services/directory'">
+            <RouterLink :to="{ 
+                path: '/services', 
+                query: { 
+                    section: props.category,
+                    } 
+                }"
+            >
                 <button class="px-4 bg-(--MenuCard) rounded-2xl">View All</button>
             </RouterLink>
         </div>
@@ -45,15 +51,18 @@
 
     interface Props {
         tagLevel?: 1|2|3|4|5|6,
-        sectionName?: string
+        sectionName?: string,
+        category?: string,
         serviceTiers?: ServiceTier[]
     }
 
     const props = withDefaults(defineProps<Props>(), {
         tagLevel: 2,
         sectionName: "Section name here",
+        category: "Category Here",
         serviceTiers: () => []
     })
+    console.log('ServiceBundle category prop:', props.category)
 
     const tagType: ComputedRef<string> = computed(() => "h" + props.tagLevel)
 </script>

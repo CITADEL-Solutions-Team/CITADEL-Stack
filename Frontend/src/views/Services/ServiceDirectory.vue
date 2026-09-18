@@ -98,16 +98,33 @@
 
 <script setup lang="ts">
     import type { Service } from '@/views/Services/Service';
-    import { computed, ref, type ComputedRef, type Ref } from 'vue';
+    import { computed, ref, watch, type ComputedRef, type Ref } from 'vue';
+    import { useRouter } from 'vue-router';
     import { filterServices } from '@/views/Services/SearchServices';
     import DirServiceCard from '@/components/Cards/DirServiceCard.vue';
+
+    interface Props {
+        Personal?: boolean,
+    }
+
+    const props = withDefaults(defineProps<Props>(), {
+        Personal: false,
+    })
+
+    const router = useRouter();
 
     const searchQuery: Ref<string> = ref("");
     const categoryFilters: Ref<Service["category"][]> = ref([]);
 
-    const audienceToggle: Ref<boolean> = ref(false)
+    const audienceToggle: Ref<boolean> = ref(props.Personal)
 
-    const label: Ref<"Business"|"Personal"> = computed(() => audienceToggle.value ? "Business" : "Personal");
+    // Keep the URL in sync whenever the toggle changes
+    watch(audienceToggle, (isPersonal) => {
+        router.push({ query: { section: isPersonal ? 'personal' : 'business' } });
+    });
+
+    // Fixed: was inverted before (true was mapping to "Business")
+    const label: ComputedRef<"Business"|"Personal"> = computed(() => audienceToggle.value ? "Personal" : "Business");
 
     const audienceFilters: ComputedRef<Service["audience"][]> = computed(() => [label.value]);
 

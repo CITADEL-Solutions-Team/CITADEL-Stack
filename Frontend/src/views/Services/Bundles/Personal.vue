@@ -12,13 +12,17 @@
     id="WebsiteDevelopment"
     :tagLevel="2"
     :sectionName="'Website Development'"
-    :serviceTiers="webDevCards"></ServiceBundle>
+    :serviceTiers="webDevCards"
+    :category="'personal'"
+    ></ServiceBundle>
 
     <ServiceBundle
     id="ComputerServices"
     :tagLevel="2"
     :sectionName="'Computer Services'"
-    :serviceTiers="computerServicesCards"></ServiceBundle>
+    :serviceTiers="computerServicesCards"
+    :category="'personal'"
+    ></ServiceBundle>
 
 </template>
 

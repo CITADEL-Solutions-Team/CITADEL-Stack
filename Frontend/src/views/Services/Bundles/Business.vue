@@ -11,7 +11,10 @@
     id="WebsiteDevelopment"
     :tagLevel="2"
     :sectionName="'Website Development'"
-    :serviceTiers="webDevCards"></ServiceBundle>
+    :serviceTiers="webDevCards"
+    :category="'business'"
+    >
+    </ServiceBundle>
 </template>
 
 <script setup lang="ts">
