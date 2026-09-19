@@ -1,6 +1,6 @@
 module github.com/Opulent0/CITADEL_Solutions_Stack
 
-go 1.26.3
+go 1.27.1
 
 require (
 	github.com/gin-contrib/cors v1.7.7
