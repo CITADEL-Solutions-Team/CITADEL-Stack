@@ -36,7 +36,7 @@
             Rare: true,
         },
         {
-            Name: "Nick Rutgier",
+            Name: "Nick Rudigier",
             Team: "DEV",
             Role: "Backend Lead",
             Color: "#1E90FF",
