@@ -29,10 +29,6 @@
                             Web Dev
                         </label>
                         <label>
-                            <input type="checkbox" value="CyberSec" v-model="categoryFilters">
-                            Cybersecurity
-                        </label>
-                        <label>
                             <input type="checkbox" value="PCServices" v-model="categoryFilters">
                             Computer Services
                         </label>
