@@ -76,18 +76,12 @@
 
     const exploreSvcList = [
         {
-            service: "Cybersecurity",
-            business: "/services/bundles/business#Cybersecurity",
-            personal: "/services/bundles/personal#Cybersecurity",
-        },
-        {
             service: "Website Development",
             business: "/services/bundles/business#WebsiteDevelopment",
             personal: "/services/bundles/personal#WebsiteDevelopment",
         },
         {
             service: "Computer Services",
-            business: "/services/bundles/business#ComputerServices",
             personal: "/services/bundles/personal#ComputerServices",
         },
     ]

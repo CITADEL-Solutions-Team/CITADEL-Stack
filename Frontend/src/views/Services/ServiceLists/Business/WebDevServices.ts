@@ -266,7 +266,7 @@ export const businessWebDevServices: Service[] = [
     price: "$500 - $2,000 (integration-dependent)",
     description: "Disconnected tools mean manual double-entry; integrations let your systems actually talk to each other.",
     features: [
-      "CRM or email marketing platform hookup",
+      //"CRM or email marketing platform hookup",
       "Live chat/chatbot installation",
       "Social media feed integration",
       "Third-party API connections"
