@@ -18,7 +18,7 @@ export const pageRoutes: PageRoute[] = [
   { name: 'PersonalBundles', path: '/services/bundles/personal', indexable: true },
   { name: 'ContactUs', path: '/contact-us', indexable: true },
   { name: 'FAQ', path: '/faq', indexable: true },
-  { name: 'Glossary', path: '/glossary', indexable: true },
+  { name: 'Glossary', path: '/glossary', indexable: false },
   { name: 'PrivacyPolicy', path: '/policies/privacy-policy', indexable: true },
   { name: 'CookiePolicy', path: '/policies/cookie-policy', indexable: true },
   { name: 'TermsOfService', path: '/policies/terms-of-service', indexable: true },
