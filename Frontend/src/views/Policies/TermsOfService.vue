@@ -1,5 +1,5 @@
 <template>
-    <h1 class="text-4xl underline py-2"></h1>
+    <h1 class="text-4xl underline py-2">Terms of Service</h1>
     <p class="pb-4"></p>
     <p></p>
     <ul class="list-decimal">

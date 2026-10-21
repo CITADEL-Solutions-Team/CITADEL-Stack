@@ -40,7 +40,7 @@
             Team: "DEV",
             Role: "Backend Lead",
             Color: "#1E90FF",
-            To: "/about-us/nrutigier",
+            To: "/about-us/nrudigier",
             Rare: false,
         },
         {
