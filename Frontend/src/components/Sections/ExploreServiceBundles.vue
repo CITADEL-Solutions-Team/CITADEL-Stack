@@ -35,11 +35,12 @@
 
 <script setup lang="ts">
     import { computed, type ComputedRef } from 'vue';
+    import type { RouteLocationRaw } from 'vue-router';
 
     interface ServiceCards {
         service: string,
-        business?: string,
-        personal?: string,
+        business?: RouteLocationRaw,
+        personal?: RouteLocationRaw,
     }
 
     interface Props {
@@ -52,9 +53,9 @@
         cards: () => ([
             {
                 service: "Service Name Here",
-                to: "/error/404",
-                business: "/error/404",
-                personal: "/error/404",
+                to: { name: "NotFound", params: { pathMatch: ["error", "404"] } },
+                business: { name: "BusinessBundles" },
+                personal: { name: "PersonalBundles" },
             }
         ])
     })
