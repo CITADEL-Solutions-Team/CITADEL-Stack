@@ -54,6 +54,7 @@ const router = createRouter({
             {
                 path: "/services/bundles",
                 name: "Bundles",
+                redirect: "/services",
                 children: [
                     {
                         path: "/services/bundles/business",
@@ -82,6 +83,7 @@ const router = createRouter({
     {
         path: "/policies",
         name: "Policies",
+        redirect: "/policies/privacy-policy",
         children: [
             {
                 path: "privacy-policy",
@@ -116,15 +118,9 @@ const router = createRouter({
         component: () => import('@/views/Glossary.vue')
     },
     {
-        path: "/error",
-        name: "Error",
-        children: [
-            {
-                path: "404",
-                name: "NotExist",
-                component: () => import('@/views/Errors/error404.vue')
-            }
-        ]
+        path: "/:pathMatch(.*)*",
+        name: "NotFound",
+        component: () => import('@/views/Errors/error404.vue')
     }
   ]
 })
