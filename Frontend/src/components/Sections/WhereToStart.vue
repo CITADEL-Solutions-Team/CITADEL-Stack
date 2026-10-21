@@ -31,10 +31,11 @@
 
 <script setup lang="ts">
 import { computed, type ComputedRef } from 'vue';
+import type { RouteLocationRaw } from 'vue-router';
 
     interface Bttn {
         label: string,
-        to: string,
+        to: RouteLocationRaw,
     }
     
     interface Props {
@@ -46,7 +47,7 @@ import { computed, type ComputedRef } from 'vue';
         tagLevel: 2,
         button: () => ({
             label: "Needs Label",
-            to: "/error/404"
+            to: { name: "NotFound", params: { pathMatch: ["error", "404"] } }
         })
     })
 

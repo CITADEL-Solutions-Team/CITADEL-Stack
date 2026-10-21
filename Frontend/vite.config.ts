@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url'
 import svgLoader from 'vite-svg-loader'
 import axios from 'axios'
+import { sitemap } from './build/sitemap'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
     vue(),
     tailwindcss(),
     svgLoader(),
+    sitemap(),
   ],
   resolve: {
     alias: {
