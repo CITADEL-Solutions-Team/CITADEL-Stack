@@ -1,6 +1,6 @@
 <template>
     <div
-        class="deck-container relative w-full h-240 flex items-center justify-center"
+        class="deck-container relative w-full h-240 lg:pt-36 xl:pt-56 flex items-center justify-center"
         :class="{ 'is-ready': ready }"
         role="region"
         aria-roledescription="carousel"
