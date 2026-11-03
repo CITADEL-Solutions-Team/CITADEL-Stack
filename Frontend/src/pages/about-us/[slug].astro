@@ -1,0 +1,44 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Layout from '@/layouts/Layout.astro';
+import { bios } from '@/components/cards/bio/members';
+import type { Bio } from '@/components/cards/bio/members';
+
+export const getStaticPaths = (() => {
+    return bios.map((bio: Bio) => ({
+        params: { slug: bio.slug },
+        props: { bio },
+    }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+    bio: Bio;
+}
+
+const { bio } = Astro.props;
+
+// Typed as `any` on purpose: Astro's type checker doesn't accept Vue's
+// Component type as something it can render, even though it renders fine.
+const views: Record<string, any> = import.meta.glob('/src/components/team/*.vue', {
+    eager: true,
+    import: 'default',
+});
+
+const View: any = views[`/src/components/team/${bio.slug}.vue`];
+---
+
+<Layout
+    title={`${bio.Name} | Citadel Solutions`}
+    description={`${bio.Name}, ${bio.Role} at Citadel Solutions.`}
+    noindex
+>
+    {View ? (
+        <View />
+    ) : (
+        <section class="py-8">
+            <h1 class="text-3xl font-bold">{bio.Name}</h1>
+            <p class="text-(--SupText)">{bio.Role}</p>
+            <p class="pt-4">Portfolio coming soon.</p>
+        </section>
+    )}
+</Layout>

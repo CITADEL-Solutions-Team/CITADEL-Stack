@@ -1,0 +1,52 @@
+/* CITADEL Solutions: global styles and design tokens */
+
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Exo";
+  src: url("/fonts/exo/exo-v25-latin-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo";
+  src: url("/fonts/exo/exo-v25-latin-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fonts registered with Tailwind:
+   --font-sans is the site's default body font (Tailwind applies it to <html>).
+   --font-exo creates the `font-exo` utility for non-heading text that should use Exo. */
+@theme {
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-exo: "Exo", system-ui, sans-serif;
+}
+
+:root {
+  --Background: #000000;
+  --Accent: #1E90FF;
+  --MenuCard: #072A4C;
+  --AltCard: #2F4C68;
+  --Text: #FFFFFF;
+  --SupText: #ffffff8c;
+
+  color-scheme: dark;
+  letter-spacing: 0.18px;
+  color: var(--Text);
+  background: var(--Background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Exo by default. Low priority, so utility classes still override. */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-exo);
+  }
+}

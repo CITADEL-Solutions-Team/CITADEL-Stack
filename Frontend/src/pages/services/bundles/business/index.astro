@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import BundlesIntro from '@/components/services/bundles/BundlesIntro.vue';
+import ServiceBundle from '@/components/services/bundles/ServiceBundle.vue';
+import { businessWebDevTiers } from '@/components/services/bundles/business';
+---
+
+<Layout
+    title="Business Service Bundles | Citadel Solutions"
+    description="Website development bundles for small businesses, from starter sites to e-commerce."
+>
+    <BundlesIntro
+        title="Business Service Bundles"
+        subtitle="Find the right fit for your business."
+        lead="Pick the bundle that best fits your needs or put together a unique bundle customized just for your business!"
+    />
+    <ServiceBundle
+        anchorId="WebsiteDevelopment"
+        sectionName="Website Development"
+        category="business"
+        serviceTiers={businessWebDevTiers}
+    />
+</Layout>

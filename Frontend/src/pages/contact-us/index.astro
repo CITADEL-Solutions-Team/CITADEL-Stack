@@ -1,0 +1,22 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContactForm from '@/components/contact/ContactForm.vue';
+import ContactCallout from '@/components/contact/ContactCallout.vue';
+---
+
+<Layout
+    title="Contact Us | Citadel Solutions"
+    description="Get in touch with Citadel Solutions for cybersecurity, website development, or computer services."
+>
+    <section class="py-8">
+        <h1 class="text-5xl text-center pb-8">Contact Us</h1>
+        <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
+            <div class="md:flex-1 md:self-stretch">
+                <ContactCallout />
+            </div>            
+            <div class="md:flex-1">
+                <ContactForm client:load />
+            </div>
+        </div>
+    </section>
+</Layout>

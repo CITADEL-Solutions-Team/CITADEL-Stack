@@ -4,6 +4,13 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
 jobs:
   deploy-frontend:
     runs-on: self-hosted
@@ -15,6 +22,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          check-latest: true
 
       - name: Install dependencies
         run: npm ci
@@ -24,14 +32,52 @@ jobs:
         run: npm run build
         working-directory: ./Frontend
 
+      - name: Check the build has a CSP meta tag
+        run: grep -q 'content-security-policy' Frontend/dist/index.html || { echo "No CSP meta tag in build. Aborting."; exit 1; }
+
       - name: Create destination directory
         run: ssh citadel@10.10.20.31 "mkdir -p /var/www/releases/${{ github.sha }}"
 
       - name: Copy new build to frontend CT
         run: scp -r Frontend/dist/* citadel@10.10.20.31:/var/www/releases/${{ github.sha }}/
 
+      - name: Verify release before switching
+        run: |
+          ssh citadel@10.10.20.31 "test -f /var/www/releases/${{ github.sha }}/index.html && test -f /var/www/releases/${{ github.sha }}/404.html" \
+            || { echo "Release is missing index.html or 404.html. Aborting before switching."; exit 1; }
+
+      - name: Record current release (for rollback)
+        id: prev
+        run: echo "path=$(ssh citadel@10.10.20.31 'readlink /var/www/current')" >> "$GITHUB_OUTPUT"
+
       - name: Update symlink
         run: ssh citadel@10.10.20.31 "ln -sfn /var/www/releases/${{ github.sha }} /var/www/current"
+
+      - name: Smoke test the live site
+        run: |
+          RESOLVE="--resolve citadelsolutions.tech:443:10.10.20.31"
+          BASE="https://citadelsolutions.tech"
+
+          code=$(curl -s -o /dev/null -w '%{http_code}' $RESOLVE "$BASE/our-mission")
+          [ "$code" = "200" ] || { echo "/our-mission returned $code, expected 200"; exit 1; }
+
+          code=$(curl -s -o /dev/null -w '%{http_code}' $RESOLVE "$BASE/smoke-test-not-a-page")
+          [ "$code" = "404" ] || { echo "Missing page returned $code, expected 404"; exit 1; }
+
+          curl -s $RESOLVE "$BASE/" | grep -q 'content-security-policy' \
+            || { echo "Live page has no CSP meta tag"; exit 1; }
+
+          if curl -sI $RESOLVE "$BASE/" | grep -qi '^content-security-policy:'; then
+            echo "nginx is sending a CSP header, which will block Astro's inline scripts"; exit 1
+          fi
+
+      - name: Roll back on failure
+        if: failure() && steps.prev.outputs.path != ''
+        run: ssh citadel@10.10.20.31 "ln -sfn ${{ steps.prev.outputs.path }} /var/www/current"
+
+      - name: Clean up old releases (keep last 5)
+        if: success()
+        run: ssh citadel@10.10.20.31 "cd /var/www/releases && ls -1t | tail -n +6 | xargs -r rm -rf"
 
   deploy-backend:
     runs-on: self-hosted

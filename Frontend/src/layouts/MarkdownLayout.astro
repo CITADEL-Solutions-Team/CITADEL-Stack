@@ -1,0 +1,49 @@
+---
+import Layout from './Layout.astro';
+
+const { title, description } = Astro.props.frontmatter;
+---
+
+<Layout title={title} description={description}>
+    <article class="policy py-8">
+        <slot />
+    </article>
+</Layout>
+
+<style>
+    /* The Markdown is rendered into the slot, so its elements need :global()
+       for these styles to reach them. Everything stays scoped under .policy. */
+    .policy {
+        max-width: 80ch;
+    }
+    .policy :global(h1) {
+        font-size: 2.25rem;
+        text-decoration: underline;
+        padding: 0.5rem 0;
+    }
+    .policy :global(h2) {
+        font-size: 1.5rem;
+        text-decoration: underline;
+        padding-top: 1rem;
+    }
+    .policy :global(h3) {
+        font-size: 1.25rem;
+        text-decoration: underline;
+        padding-top: 0.5rem;
+    }
+    .policy :global(p) {
+        padding-bottom: 0.5rem;
+    }
+    .policy :global(ul) {
+        list-style: disc;
+        margin-left: 2rem;
+        padding-bottom: 0.5rem;
+    }
+    .policy :global(a) {
+        text-decoration: underline;
+    }
+    .policy :global(a:hover),
+    .policy :global(a:focus-visible) {
+        color: var(--Accent);
+    }
+</style>

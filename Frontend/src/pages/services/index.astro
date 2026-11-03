@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ServiceDirectory from '@/components/services/directory/ServiceDirectory.vue';
+---
+
+<Layout
+    title="Services | Citadel Solutions"
+    description="Browse web development and computer services for businesses and individuals."
+    fullBleed
+>
+    <ServiceDirectory client:load />
+</Layout>

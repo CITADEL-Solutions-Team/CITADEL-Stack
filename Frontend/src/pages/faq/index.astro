@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import WhereToStart from '@/components/sections/WhereToStart.vue';
+import type { CtaButton } from '@/components/sections/WhereToStart.vue';
+import FaqSections from '@/components/faq/FaqSections.vue';
+
+const contactButton: CtaButton = { label: 'Contact Us', to: '/contact-us' };
+---
+
+<Layout
+    title="FAQ | CITADEL Solutions"
+    description="Answers to common questions about CITADEL Solutions: free consultations, billing, remote and on-site support, cybersecurity, websites, and PC repair."
+>
+    <WhereToStart button={contactButton} tagLevel={1}>
+        <Fragment slot="Header">Frequently Asked Questions</Fragment>
+        <Fragment slot="Body">
+            You might have some questions, and hopefully we've answered them! If you don't see an answer to yours,
+            we'd be happy to help over email or a call.
+        </Fragment>
+    </WhereToStart>
+
+    <FaqSections />
+</Layout>
