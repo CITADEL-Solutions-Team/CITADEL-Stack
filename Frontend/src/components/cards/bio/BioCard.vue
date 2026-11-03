@@ -21,7 +21,7 @@
         5. Only members with Info.Rare === true render any of this — everyone
            else gets zero extra DOM/CSS cost.
     -->
-    <div class="card-outer aspect-2/3 w-[clamp(200px,34vw,320px)]" @click="emit('flip')">
+  <div class="card-outer aspect-2/3 w-[clamp(180px,min(34vw,38vh),320px)]" @click="emit('flip')">
         <!-- The real flip control: keyboard and screen-reader users interact with
              this button; mouse users can click anywhere on the card. -->
         <button
