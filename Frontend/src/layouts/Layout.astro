@@ -1,0 +1,72 @@
+---
+// src/layouts/Layout.astro
+import '@/styles/global.css';
+import Header from '@/components/header/Header.astro';
+import Footer from '@/components/footer/Footer.astro';
+
+interface Props {
+    title: string;
+    description?: string;
+    fullBleed?: boolean;
+    noindex?: boolean;
+}
+
+const {
+    title,
+    description = 'Citadel Solutions: cybersecurity, IT, and web development for small businesses.',
+    fullBleed = false,
+    noindex = false,
+} = Astro.props;
+
+const canonicalUrl: URL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {noindex && <meta name="robots" content="noindex" />}
+        <link rel="canonical" href={canonicalUrl} />
+
+        <!-- Link previews (Discord, LinkedIn, iMessage, etc.) -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Citadel Solutions" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+
+        <!-- Favicons -->
+        <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <meta name="theme-color" content="#000000" />
+
+        <link
+            rel="preload"
+            href="/fonts/exo/exo-v25-latin-700.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+    </head>
+    <body>
+        <a
+            href="#main"
+            class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[1000]
+                   focus:bg-(--Accent) focus:text-(--Background) focus:px-4 focus:py-2 focus:rounded"
+        >
+            Skip to main content
+        </a>
+
+        <Header />
+        <main id="main" class:list={[{ 'px-10 lg:px-20': !fullBleed }]}>
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>

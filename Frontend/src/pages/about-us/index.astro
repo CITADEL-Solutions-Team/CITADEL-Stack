@@ -1,0 +1,19 @@
+---
+// src/pages/about-us/index.astro
+import Layout from '@/layouts/Layout.astro';
+import Deck from '@/components/cards/bio/Deck.vue';
+import { bios } from '@/components/cards/bio/members';
+---
+
+<Layout title="About Us | CITADEL Solutions" description="Meet the CITADEL Solutions team." fullBleed>
+    <div class="deck-area">
+        <Deck members={bios} client:visible />
+    </div>
+</Layout>
+
+<style>
+    .deck-area {
+        overflow-x: hidden;
+        min-height: 60rem;
+    }
+</style>

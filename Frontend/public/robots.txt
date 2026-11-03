@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://citadelsolutions.tech/sitemap.xml
+Sitemap: https://citadelsolutions.tech/sitemap-index.xml

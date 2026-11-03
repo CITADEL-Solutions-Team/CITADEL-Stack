@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Page Not Found | Citadel Solutions" noindex>
+    <section class="py-20 flex flex-col items-center text-center gap-6">
+        <p class="font-exo text-6xl font-bold text-(--Accent)">404</p>
+        <h1 class="text-3xl font-bold">Page not found</h1>
+        <p class="text-(--SupText) max-w-xl">
+            The page you're looking for doesn't exist or has moved.
+        </p>
+        <a
+            href="/"
+            class="font-semibold px-6 py-3 rounded-lg bg-(--Accent) text-(--Background) border-2 border-transparent
+                   hover:border-white focus-visible:border-white
+                   focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+            Back to Home
+        </a>
+    </section>
+</Layout>

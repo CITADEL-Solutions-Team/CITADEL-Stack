@@ -1,0 +1,66 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/sections/Hero.vue';
+import type { HeroButton } from '@/components/sections/Hero.vue';
+import ListWithHeader from '@/components/sections/ListWithHeader.vue';
+import ExploreServiceBundles from '@/components/sections/ExploreServiceBundles.vue';
+import WhereToStart from '@/components/sections/WhereToStart.vue';
+
+const aboutButton: HeroButton = { label: 'About Us', to: '/about-us' };
+const missionButton: HeroButton = { label: 'Our Mission', to: '/our-mission' };
+const contactButton: HeroButton = { label: 'Contact Us', to: '/contact-us' };
+
+import type { ListItem } from '@/components/sections/ListWithHeader.vue';
+import type { ServiceCard } from '@/components/sections/ExploreServiceBundles.vue';
+import type { CtaButton } from '@/components/sections/WhereToStart.vue';
+
+const whyCitadel: ListItem[] = [
+    {
+        header: 'A local team that treats you like a client, not a ticket',
+        body: "We're a local startup, which means every client gets our full attention. You'll work directly with the people solving your problems, not a rotating help desk. When you call, someone who knows your setup picks up.",
+    },
+    {
+        header: 'No jargon, no surprises',
+        body: "We explain what we're doing and why in plain language. You'll always know exactly where you stand: no mystery invoices, no upsells you didn't ask for, and no confusing reports you have to decode yourself.",
+    },
+];
+const serviceBundles: ServiceCard[] = [
+    {
+        service: 'Website Development',
+        business: '/services/bundles/business#WebsiteDevelopment',
+        personal: '/services/bundles/personal#WebsiteDevelopment',
+    },
+    {
+        service: 'Computer Services',
+        personal: '/services/bundles/personal#ComputerServices',
+    },
+];
+---
+
+<Layout
+    title="Citadel Solutions | Cybersecurity for Small Businesses"
+    description="Straightforward cybersecurity and IT for small and mid-sized businesses. No jargon, no bloated contracts. Book a free consultation."
+>
+    <Hero tagLevel={1} buttonOne={aboutButton} buttonTwo={missionButton}>
+        <Fragment slot="Hook">Secure Today. Protect Tomorrow.</Fragment>
+        <Fragment slot="Body">
+            Straightforward cybersecurity for small and mid-sized businesses. No jargon, no bloated
+            contracts, just real protection from a team that genuinely cares about your business.
+        </Fragment>
+    </Hero>
+
+    <ListWithHeader header="Why Citadel?" tagLevel={2} list={whyCitadel} />
+
+    <ExploreServiceBundles tagLevel={2} cards={serviceBundles} />
+
+    <WhereToStart button={contactButton}>
+        <Fragment slot="Header">Not sure where to start? That's what the first call is for!</Fragment>
+        <Fragment slot="Body">
+            We offer a free, no-pressure consultation for every new client. In 30 minutes we'll identify
+            your biggest gaps and walk you through what it would take to close them. No commitment required.
+        </Fragment>
+        <Fragment slot="SupTxt">
+            Schedule your <strong class="text-(--Accent)">free</strong> consultation today!
+        </Fragment>
+    </WhereToStart>
+</Layout>

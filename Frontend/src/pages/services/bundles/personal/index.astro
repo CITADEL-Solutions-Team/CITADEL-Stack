@@ -1,0 +1,29 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import BundlesIntro from '@/components/services/bundles/BundlesIntro.vue';
+import ServiceBundle from '@/components/services/bundles/ServiceBundle.vue';
+import { personalWebDevTiers, personalComputerTiers } from '@/components/services/bundles/personal';
+---
+
+<Layout
+    title="Personal Service Bundles | Citadel Solutions"
+    description="Personal website and computer service bundles, from portfolios to PC tune-ups."
+>
+    <BundlesIntro
+        title="Personal Service Bundles"
+        subtitle="Find the right fit for you."
+        lead="Pick the bundle that best fits your needs or put together a unique bundle customized just for you!"
+    />
+    <ServiceBundle
+        anchorId="WebsiteDevelopment"
+        sectionName="Website Development"
+        category="personal"
+        serviceTiers={personalWebDevTiers}
+    />
+    <ServiceBundle
+        anchorId="ComputerServices"
+        sectionName="Computer Services"
+        category="personal"
+        serviceTiers={personalComputerTiers}
+    />
+</Layout>

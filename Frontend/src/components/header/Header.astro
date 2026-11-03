@@ -1,0 +1,12 @@
+---
+import Banner from './Banner.vue';
+import Nav from './Nav.vue';
+import { navItems } from './items';
+
+const currentPath: string = Astro.url.pathname;
+---
+
+<header>
+    <Banner />
+    <Nav NavItems={navItems} currentPath={currentPath} />
+</header>
