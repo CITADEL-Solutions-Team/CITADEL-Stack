@@ -20,6 +20,22 @@ var (
 	duplicateWindow   = 5 * time.Minute // 5 minute window for duplicate submissions
 )
 
+// Function to remove old entries from the trackerMutex
+func init() { // Use init so this function always runs on startup
+	go func() {
+		ticker := time.NewTicker(1 * time.Minute) // Remove old entries every minute
+		for range ticker.C {
+			trackerMutex.Lock()
+			for email, lastSubmit := range submissionTracker {
+				if time.Since(lastSubmit) > duplicateWindow {
+					delete(submissionTracker, email)
+				}
+			}
+			trackerMutex.Unlock()
+		}
+	}()
+}
+
 func SetTestingMode(enabled bool) {
 	isTesting = enabled
 }
