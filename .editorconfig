@@ -1,0 +1,23 @@
+# EditorConfig: https://editorconfig.org
+# Stops searching parent directories; this file is the top-level config.
+root = true
+
+# Defaults for every file
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Frontend files: 2-space indentation
+[*.{vue,astro,ts,tsx,js,jsx,mjs,cjs,css,html,json,jsonc}]
+indent_style = space
+indent_size = 2
+
+# Markdown: trailing double-space is a line break, so don't strip it
+[*.md]
+trim_trailing_whitespace = false
+
+# Go uses tabs (gofmt enforces this anyway)
+[*.go]
+indent_style = tab

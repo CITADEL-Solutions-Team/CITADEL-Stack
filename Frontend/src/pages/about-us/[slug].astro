@@ -18,7 +18,7 @@ interface Props {
 const { bio } = Astro.props;
 
 // Typed as `any` on purpose: Astro's type checker doesn't accept Vue's
-// Component type as something it can render, even though it renders fine.
+// Component type as something it can xrender, even though it renders fine.
 const views: Record<string, any> = import.meta.glob('/src/components/team/*.vue', {
     eager: true,
     import: 'default',
@@ -32,13 +32,13 @@ const View: any = views[`/src/components/team/${bio.slug}.vue`];
     description={`${bio.Name}, ${bio.Role} at Citadel Solutions.`}
     noindex
 >
+  <section class="py-12">
     {View ? (
         <View />
     ) : (
-        <section class="py-8">
-            <h1 class="text-3xl font-bold">{bio.Name}</h1>
-            <p class="text-(--SupText)">{bio.Role}</p>
-            <p class="pt-4">Portfolio coming soon.</p>
-        </section>
+      <h1 class="text-3xl font-bold">{bio.Name}</h1>
+      <p class="text-(--SupText)">{bio.Role}</p>
+      <p class="pt-4">Portfolio coming soon.</p>
     )}
+  </section>
 </Layout>
