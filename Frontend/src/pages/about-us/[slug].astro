@@ -34,7 +34,7 @@ const View: any = views[`/src/components/team/${bio.slug}.vue`];
 >
   <section class="py-12">
     {View ? (
-        <View />
+        <View bio={bio} />
     ) : (
       <h1 class="text-3xl font-bold">{bio.Name}</h1>
       <p class="text-(--SupText)">{bio.Role}</p>
